@@ -62,55 +62,29 @@ public class Putout extends NodeBasedRecipe {
 
     @Override
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
-        List<String> commands = new ArrayList<>();
-        String executable = "${nodeModules}/.bin/putout";
-
-        if (rules != null) {
-            commands.add(executable + " ${repoDir} --disable-all || true"); // hacky because putout throws
-
-            // enable only rules that are provided
-            for (String rule : rules) {
-                commands.add(executable + " ${repoDir} --enable " + rule + " || true");
-            }
-        }
-
-        commands.add(executable + " ${repoDir}" + " --disable no-html-link-for-pages || true");
-
-        if (printer != null) {
-            commands.add("node " + Objects.requireNonNull(ctx.getMessage(PUTOUT_DIR)) + "/putout.js " + printer);
-        }
-
-        commands.add(executable + " ${repoDir}" + " --fix || true");
-        return commands;
+        // Return empty - we'll handle commands in runCommand override
+        return new ArrayList<>();
     }
 
     @Override
-    protected void runNode(Accumulator acc, ExecutionContext ctx) {
+    protected void runCommand(Accumulator acc, ExecutionContext ctx) {
         Path dir = acc.getDirectory();
         Path nodeModules = RecipeResources.from(getClass()).init(ctx);
 
-        List<String> commandList = getNpmCommand(acc, ctx);
+        List<String> commandList = getPutoutCommands(acc, ctx);
         if (commandList.isEmpty()) {
             return;
         }
 
         Map<String, String> env = getCommandEnvironment(acc, ctx);
 
-        // Replace placeholders in commands
-        List<String> processedCommands = new ArrayList<>();
-        for (String cmd : commandList) {
-            processedCommands.add(cmd
-                    .replace("${nodeModules}", nodeModules.toString())
-                    .replace("${repoDir}", ".")
-                    .replace("${parser}", acc.parser()));
-
-        }
-
         Path out = null;
         Path err = null;
         try {
-            for (String cmd : processedCommands) {
-                List<String> singleCommand = Arrays.asList("/bin/bash", "-c", cmd);
+            for (String cmd : commandList) {
+                // Expand variables in the command
+                String expandedCmd = expandVariables(cmd, acc, ctx);
+                List<String> singleCommand = Arrays.asList("/bin/bash", "-c", expandedCmd);
 
                 ProcessBuilder builder = new ProcessBuilder(singleCommand);
                 builder.directory(dir.toFile());
@@ -118,20 +92,18 @@ public class Putout extends NodeBasedRecipe {
                 builder.environment().put("TERM", "dumb");
                 env.forEach(builder.environment()::put);
 
-                out = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
-                err = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
+                out = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "putout", null);
+                err = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "putout", null);
                 builder.redirectOutput(ProcessBuilder.Redirect.to(out.toFile()));
                 builder.redirectError(ProcessBuilder.Redirect.to(err.toFile()));
 
                 Process process = builder.start();
-                process.waitFor(5, TimeUnit.MINUTES);
-                if (process.exitValue() != 0) {
-                    String error = "Command failed: " + cmd;
-                    if (Files.exists(err)) {
-                        error += "\n" + new String(Files.readAllBytes(err));
-                    }
-                    throw new RuntimeException(error);
+                if (!process.waitFor(5, TimeUnit.MINUTES)) {
+                    throw new RuntimeException(String.format("Command '%s' timed out after 5 minutes", expandedCmd));
                 }
+                // Don't fail on non-zero exit (putout uses exit codes for linting results)
+
+                // Detect modified files
                 for (Map.Entry<Path, Long> entry : acc.beforeModificationTimestamps.entrySet()) {
                     Path path = entry.getKey();
                     if (!Files.exists(path) || Files.getLastModifiedTime(path).toMillis() > entry.getValue()) {
@@ -154,6 +126,29 @@ public class Putout extends NodeBasedRecipe {
                 err.toFile().delete();
             }
         }
+    }
+
+    private List<String> getPutoutCommands(Accumulator acc, ExecutionContext ctx) {
+        List<String> commands = new ArrayList<>();
+        String executable = "${nodeModules}/.bin/putout";
+
+        if (rules != null) {
+            commands.add(executable + " ${repoDir} --disable-all || true");
+
+            // enable only rules that are provided
+            for (String rule : rules) {
+                commands.add(executable + " ${repoDir} --enable " + rule + " || true");
+            }
+        }
+
+        commands.add(executable + " ${repoDir}" + " --disable no-html-link-for-pages || true");
+
+        if (printer != null) {
+            commands.add("node " + Objects.requireNonNull(ctx.getMessage(PUTOUT_DIR)) + "/putout.js " + printer);
+        }
+
+        commands.add(executable + " ${repoDir}" + " --fix || true");
+        return commands;
     }
 
     // TODO: support configuration files

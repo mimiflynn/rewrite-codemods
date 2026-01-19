@@ -15,294 +15,69 @@
  */
 package org.openrewrite.codemods;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.jspecify.annotations.Nullable;
-import org.openrewrite.*;
-import org.openrewrite.quark.Quark;
-import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
-import org.openrewrite.text.PlainText;
-import org.openrewrite.tree.ParseError;
+import org.openrewrite.ExecutionContext;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import static java.util.Collections.emptyList;
-
-public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Accumulator> {
-    private static final String FIRST_RECIPE = NodeBasedRecipe.class.getName() + ".FIRST_RECIPE";
-    private static final String PREVIOUS_RECIPE = NodeBasedRecipe.class.getName() + ".PREVIOUS_RECIPE";
-    private static final String INIT_REPO_DIR = NodeBasedRecipe.class.getName() + ".INIT_REPO_DIR";
+/**
+ * Base class for recipes that apply Node.js/JavaScript-based codemods (jscodeshift, ESLint, Biome, etc.).
+ * <p>
+ * This class extends {@link CliBasedRecipe} and provides Node.js-specific utilities including:
+ * <ul>
+ *   <li>Node modules extraction and initialization</li>
+ *   <li>Node-specific variable substitution (${nodeModules})</li>
+ *   <li>Parser detection based on file extensions</li>
+ * </ul>
+ */
+public abstract class NodeBasedRecipe extends CliBasedRecipe {
 
     @Override
-    public Accumulator getInitialValue(ExecutionContext ctx) {
-        Path directory = createDirectory(ctx, "repo");
-        if (ctx.getMessage(INIT_REPO_DIR) == null) {
-            ctx.putMessage(INIT_REPO_DIR, directory);
-            ctx.putMessage(FIRST_RECIPE, ctx.getCycleDetails().getRecipePosition());
-        }
-        return new Accumulator(directory);
-    }
-
-    @Override
-    public TreeVisitor<?, ExecutionContext> getScanner(Accumulator acc) {
-        return new TreeVisitor<Tree, ExecutionContext>() {
-            @Override
-            public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
-                if (tree instanceof SourceFile && !(tree instanceof Quark) && !(tree instanceof ParseError) &&
-                        !"org.openrewrite.java.tree.J$CompilationUnit".equals(tree.getClass().getName())) {
-                    SourceFile sourceFile = (SourceFile) tree;
-                    String fileName = sourceFile.getSourcePath().getFileName().toString();
-                    if (fileName.indexOf('.') > 0) {
-                        String extension = fileName.substring(fileName.lastIndexOf('.') + 1);
-                        acc.extensionCounts.computeIfAbsent(extension, e -> new AtomicInteger(0)).incrementAndGet();
-                    }
-
-                    // only extract initial source files for first codemod recipe
-                    if (Objects.equals(ctx.getMessage(FIRST_RECIPE), ctx.getCycleDetails().getRecipePosition())) {
-                        // FIXME filter out more source types; possibly only write plain text, json, and yaml?
-                        acc.writeSource(sourceFile);
-                    }
-                }
-                return tree;
-            }
-        };
-    }
-
-    @Override
-    public Collection<? extends SourceFile> generate(Accumulator acc, ExecutionContext ctx) {
-        Path previous = ctx.getMessage(PREVIOUS_RECIPE);
-        if (previous != null && !Objects.equals(ctx.getMessage(FIRST_RECIPE), ctx.getCycleDetails().getRecipePosition())) {
-            acc.copyFromPrevious(previous);
-        }
-
-        runNode(acc, ctx);
-        ctx.putMessage(PREVIOUS_RECIPE, acc.getDirectory());
-
-        // FIXME check for generated files
-        return emptyList();
-    }
-
-    protected void runNode(Accumulator acc, ExecutionContext ctx) {
-        Path dir = acc.getDirectory();
+    protected String expandVariables(String str, Accumulator acc, ExecutionContext ctx) {
+        // Initialize node modules for variable substitution
         Path nodeModules = RecipeResources.from(getClass()).init(ctx);
-
-        List<String> command = getNpmCommand(acc, ctx);
-        if (command.isEmpty()) {
-            return;
-        }
-
-        Map<String, String> env = getCommandEnvironment(acc, ctx);
-
-        command.replaceAll(s -> s
+        return super.expandVariables(str, acc, ctx)
                 .replace("${nodeModules}", nodeModules.toString())
-                .replace("${repoDir}", ".")
-                .replace("${parser}", acc.parser()));
-        Path out = null;
-        Path err = null;
-        try {
-            ProcessBuilder builder = new ProcessBuilder();
-            builder.command(command);
-            builder.directory(dir.toFile());
-            builder.environment().put("NODE_PATH", nodeModules.toString());
-            builder.environment().put("TERM", "dumb");
-            env.forEach(builder.environment()::put);
-
-            out = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
-            err = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
-            builder.redirectOutput(ProcessBuilder.Redirect.to(out.toFile()));
-            builder.redirectError(ProcessBuilder.Redirect.to(err.toFile()));
-
-            Process process = builder.start();
-            if (!process.waitFor(5, TimeUnit.MINUTES)) {
-                throw new RuntimeException(String.format("Command '%s' timed out after 5 minutes", String.join(" ", command)));
-            }
-            if (process.exitValue() != 0) {
-                String error = "Command failed: " + String.join(" ", command);
-                if (Files.exists(err)) {
-                    error += "\n" + new String(Files.readAllBytes(err));
-                }
-                throw new RuntimeException(error);
-            }
-            for (Map.Entry<Path, Long> entry : acc.beforeModificationTimestamps.entrySet()) {
-                Path path = entry.getKey();
-                if (!Files.exists(path) || Files.getLastModifiedTime(path).toMillis() > entry.getValue()) {
-                    acc.modified(path);
-                }
-            }
-            processOutput(out, acc, ctx);
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (out != null) {
-                //noinspection ResultOfMethodCallIgnored
-                out.toFile().delete();
-            }
-            if (err != null) {
-                //noinspection ResultOfMethodCallIgnored
-                err.toFile().delete();
-            }
-        }
+                .replace("${parser}", acc.parser());
     }
 
+    @Override
+    protected final List<String> getCommand(Accumulator acc, ExecutionContext ctx) {
+        return getNpmCommand(acc, ctx);
+    }
+
+    /**
+     * Get the npm/Node.js command to execute. Must be implemented by subclasses.
+     * <p>
+     * In addition to base variables, the following Node.js-specific variables are available:
+     * - ${nodeModules}: Path to extracted node_modules directory
+     * - ${parser}: Auto-detected parser based on file extensions (tsx, ts, or babel)
+     *
+     * @return List of command parts (executable and arguments), or empty/null if command should not run
+     */
     protected abstract List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx);
 
+    @Override
     protected Map<String, String> getCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
+        Map<String, String> env = new HashMap<>(getNodeCommandEnvironment(acc, ctx));
+        // Add Node.js-specific environment variables
+        Path nodeModules = RecipeResources.from(getClass()).init(ctx);
+        env.put("NODE_PATH", nodeModules.toString());
+        env.put("TERM", "dumb");
+        return env;
+    }
+
+    /**
+     * Provide additional environment variables for the Node.js process.
+     * Override this method to set tool-specific environment variables beyond the defaults.
+     */
+    protected Map<String, String> getNodeCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
         return new HashMap<>();
     }
 
     protected void processOutput(Path out, Accumulator acc, ExecutionContext ctx) {
     }
-
-
-    @Override
-    public TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {
-        return new TreeVisitor<Tree, ExecutionContext>() {
-            @Override
-            public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
-                if (tree instanceof SourceFile) {
-                    SourceFile sourceFile = (SourceFile) tree;
-                    // TODO parse sources like JSON where parser doesn't require an environment
-                    return createAfter(sourceFile, acc, ctx);
-                }
-                return tree;
-            }
-        };
-    }
-
-    protected SourceFile createAfter(SourceFile before, Accumulator acc, ExecutionContext ctx) {
-        if (!acc.wasModified(before)) {
-            return before;
-        }
-        return new PlainText(
-                before.getId(),
-                before.getSourcePath(),
-                before.getMarkers(),
-                before.getCharset() != null ? before.getCharset().name() : null,
-                before.isCharsetBomMarked(),
-                before.getFileAttributes(),
-                null,
-                acc.content(before),
-                emptyList()
-        );
-    }
-
-    @ToString
-    @EqualsAndHashCode
-    @RequiredArgsConstructor
-    public static class Accumulator {
-        @Getter
-        final Path directory;
-
-        final Map<Path, Long> beforeModificationTimestamps = new HashMap<>();
-        final Set<Path> modified = new LinkedHashSet<>();
-        final Map<String, AtomicInteger> extensionCounts = new HashMap<>();
-        final Map<String, Object> data = new HashMap<>();
-
-        public void copyFromPrevious(Path previous) {
-            try {
-                Files.walkFileTree(previous, new SimpleFileVisitor<Path>() {
-                    @Override
-                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                        Path target = directory.resolve(previous.relativize(dir));
-                        if (!target.equals(directory)) {
-                            Files.createDirectory(target);
-                        }
-                        return FileVisitResult.CONTINUE;
-                    }
-
-                    @Override
-                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                        try {
-                            Path target = directory.resolve(previous.relativize(file));
-                            Files.copy(file, target);
-                            beforeModificationTimestamps.put(target, Files.getLastModifiedTime(target).toMillis());
-                        } catch (NoSuchFileException ignore) {
-                        }
-                        return FileVisitResult.CONTINUE;
-                    }
-                });
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
-        }
-
-        public String parser() {
-            if (extensionCounts.containsKey("tsx")) {
-                return "tsx";
-            }
-            if (extensionCounts.containsKey("ts")) {
-                return "ts";
-            }
-            return "babel";
-        }
-
-        public void writeSource(SourceFile tree) {
-            try {
-                Path path = resolvedPath(tree);
-                Files.createDirectories(path.getParent());
-                PrintOutputCapture.MarkerPrinter markerPrinter = PrintOutputCapture.MarkerPrinter.SANITIZED;
-                Path written = Files.write(path, tree.printAll(new PrintOutputCapture<>(0, markerPrinter)).getBytes(tree.getCharset() != null ? tree.getCharset() : StandardCharsets.UTF_8));
-                beforeModificationTimestamps.put(written, Files.getLastModifiedTime(written).toMillis());
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
-        }
-
-        public void modified(Path path) {
-            modified.add(path);
-        }
-
-        public boolean wasModified(SourceFile tree) {
-            return modified.contains(resolvedPath(tree));
-        }
-
-        public String content(SourceFile tree) {
-            try {
-                Path path = resolvedPath(tree);
-                return tree.getCharset() != null ? new String(Files.readAllBytes(path), tree.getCharset()) :
-                        new String(Files.readAllBytes(path));
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
-        }
-
-        public Path resolvedPath(SourceFile tree) {
-            return directory.resolve(tree.getSourcePath());
-        }
-
-        public <T> void putData(String key, T value) {
-            data.put(key, value);
-        }
-
-        public <T> @Nullable T getData(String key) {
-            //noinspection unchecked
-            return (T) data.get(key);
-        }
-    }
-
-    protected static Path createDirectory(ExecutionContext ctx, String prefix) {
-        WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
-        return Optional.of(view.getWorkingDirectory())
-                .map(d -> d.resolve(prefix))
-                .map(d -> {
-                    try {
-                        return Files.createDirectory(d).toRealPath();
-                    } catch (IOException e) {
-                        throw new UncheckedIOException(e);
-                    }
-                })
-                .orElseThrow(() -> new IllegalStateException("Failed to create working directory for " + prefix));
-    }
-
 }
