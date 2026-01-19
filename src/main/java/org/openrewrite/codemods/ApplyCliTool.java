@@ -22,7 +22,10 @@ import org.openrewrite.ExecutionContext;
 import org.openrewrite.Option;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import static java.util.Collections.emptyList;
 
 /**
@@ -31,11 +34,19 @@ import static java.util.Collections.emptyList;
  * This recipe supports any executable (Python, Ruby, Go, Bash, etc.) and provides a flexible way
  * to integrate external tools into OpenRewrite's recipe system.
  * <p>
- * Example usage:
+ * Example usage in YAML:
  * <pre>
- * new ApplyCliTool()
- *   .setCommand("black")
- *   .setArgs(new ArrayList&lt;&gt;() {{ add("${repoDir}"); }})
+ * type: specs.openrewrite.org/v1beta/recipe
+ * name: com.example.FormatWithBlack
+ * displayName: Format Python with Black
+ * recipeList:
+ *   - org.openrewrite.codemods.ApplyCliTool:
+ *       displayName: Format Python files
+ *       description: Applies Black formatter to all Python files
+ *       command: black
+ *       args:
+ *         - "${repoDir}"
+ *       timeoutMinutes: 10
  * </pre>
  * <p>
  * This recipe can be chained with other recipes, and subsequent recipes will see the modifications
@@ -45,52 +56,81 @@ import static java.util.Collections.emptyList;
 @EqualsAndHashCode(callSuper = false)
 public class ApplyCliTool extends CliBasedRecipe {
 
+    @Option(displayName = "Display name",
+            description = "A human-readable name for this recipe instance.",
+            example = "Format Python with Black",
+            required = false)
+    @Nullable
+    String displayName;
+
+    @Option(displayName = "Description",
+            description = "A description of what this recipe instance does.",
+            example = "Applies Black formatter to all Python files in the repository.",
+            required = false)
+    @Nullable
+    String description;
+
     @Option(displayName = "CLI command",
             description = "The executable or command to run (e.g., 'python', 'black', 'ruby', 'bash')",
-            example = "black"
-    )
-    @Nullable
+            example = "black")
     String command;
 
     @Option(displayName = "Command arguments",
-            description = "Arguments to pass to the CLI tool. Supports variables like ${repoDir} and ${workDir}.",
+            description = "Arguments to pass to the CLI tool. Supports variables: ${repoDir} (current directory), ${workDir} (full working directory path).",
             example = "${repoDir}",
             required = false)
     @Nullable
     List<String> args;
 
-    @Option(displayName = "Working directory",
-            description = "Optional environment variable to set as the working directory for the tool.",
+    @Option(displayName = "Working directory environment variable",
+            description = "Name of an environment variable to set with the working directory path.",
             example = "WORK_DIR",
             required = false)
     @Nullable
     String workDirEnvVar;
 
-    @Option(displayName = "Additional environment variables",
-            description = "Key-value pairs for environment variables (format: KEY=VALUE)",
+    @Option(displayName = "Environment variables",
+            description = "Additional environment variables as KEY=VALUE pairs.",
             example = "PYTHONPATH=/custom/path",
             required = false)
     @Nullable
     List<String> envVars;
 
+    @Option(displayName = "Timeout (minutes)",
+            description = "Maximum time to wait for the command to complete. Defaults to 5 minutes.",
+            example = "10",
+            required = false)
+    @Nullable
+    Integer timeoutMinutes;
+
+    @Option(displayName = "Acceptable exit codes",
+            description = "Exit codes that should be treated as success. Defaults to only 0. " +
+                    "Some tools use non-zero codes for warnings.",
+            example = "0,1",
+            required = false)
+    @Nullable
+    List<Integer> acceptableExitCodes;
+
     @Override
     public String getDisplayName() {
-        return "Apply CLI tool to source files";
+        return displayName != null ? displayName : "Apply CLI tool";
     }
 
     @Override
     public String getDescription() {
-        return "Applies an external CLI tool (e.g., formatter, linter, custom tool) to all source files.";
+        return description != null ? description :
+                "Applies an external CLI tool to modify source files. " +
+                        "Supports any executable (Python, Ruby, Go, Bash, etc.).";
     }
 
     @Override
-    public String getDisplayName() {
-        return displayName;
+    protected int getTimeoutMinutes() {
+        return timeoutMinutes != null ? timeoutMinutes : super.getTimeoutMinutes();
     }
 
     @Override
-    public String getDescription() {
-        return description;
+    protected List<Integer> getAcceptableExitCodes() {
+        return acceptableExitCodes != null ? acceptableExitCodes : super.getAcceptableExitCodes();
     }
 
     @Override
@@ -110,8 +150,8 @@ public class ApplyCliTool extends CliBasedRecipe {
     }
 
     @Override
-    protected java.util.Map<String, String> getCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
-        java.util.Map<String, String> env = new java.util.HashMap<>();
+    protected Map<String, String> getCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
+        Map<String, String> env = new HashMap<>();
 
         if (workDirEnvVar != null && !workDirEnvVar.isEmpty()) {
             env.put(workDirEnvVar, acc.getDirectory().toString());

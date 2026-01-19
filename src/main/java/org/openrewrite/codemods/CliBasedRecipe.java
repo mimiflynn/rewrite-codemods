@@ -36,6 +36,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Collections.emptyList;
+import static java.util.Collections.singletonList;
 
 /**
  * Base class for recipes that apply external CLI tools (node, python, bash, etc.) to modify source files.
@@ -143,11 +144,16 @@ public abstract class CliBasedRecipe extends ScanningRecipe<CliBasedRecipe.Accum
             builder.redirectError(ProcessBuilder.Redirect.to(err.toFile()));
 
             Process process = builder.start();
-            if (!process.waitFor(5, TimeUnit.MINUTES)) {
-                throw new RuntimeException(String.format("Command '%s' timed out after 5 minutes", String.join(" ", expandedCommand)));
+            int timeout = getTimeoutMinutes();
+            if (!process.waitFor(timeout, TimeUnit.MINUTES)) {
+                process.destroyForcibly();
+                throw new RuntimeException(String.format("Command '%s' timed out after %d minutes", 
+                        String.join(" ", expandedCommand), timeout));
             }
-            if (process.exitValue() != 0) {
-                String error = "Command failed: " + String.join(" ", expandedCommand);
+            
+            List<Integer> acceptableCodes = getAcceptableExitCodes();
+            if (!acceptableCodes.contains(process.exitValue())) {
+                String error = "Command failed with exit code " + process.exitValue() + ": " + String.join(" ", expandedCommand);
                 if (Files.exists(err)) {
                     error += "\n" + new String(Files.readAllBytes(err));
                 }
@@ -207,6 +213,24 @@ public abstract class CliBasedRecipe extends ScanningRecipe<CliBasedRecipe.Accum
      */
     protected Map<String, String> getCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
         return new HashMap<>();
+    }
+
+    /**
+     * Get the timeout in minutes for command execution.
+     * Override this method to customize the timeout for specific tools.
+     * Default is 5 minutes.
+     */
+    protected int getTimeoutMinutes() {
+        return 5;
+    }
+
+    /**
+     * Get the list of exit codes that should be treated as success.
+     * Override this method for tools that use non-zero exit codes for warnings.
+     * Default is only 0.
+     */
+    protected List<Integer> getAcceptableExitCodes() {
+        return singletonList(0);
     }
 
     /**
