@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.openrewrite.codemods;
+package org.openrewrite.cli;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -147,10 +147,10 @@ public abstract class CliBasedRecipe extends ScanningRecipe<CliBasedRecipe.Accum
             int timeout = getTimeoutMinutes();
             if (!process.waitFor(timeout, TimeUnit.MINUTES)) {
                 process.destroyForcibly();
-                throw new RuntimeException(String.format("Command '%s' timed out after %d minutes", 
+                throw new RuntimeException(String.format("Command '%s' timed out after %d minutes",
                         String.join(" ", expandedCommand), timeout));
             }
-            
+
             List<Integer> acceptableCodes = getAcceptableExitCodes();
             if (!acceptableCodes.contains(process.exitValue())) {
                 String error = "Command failed with exit code " + process.exitValue() + ": " + String.join(" ", expandedCommand);

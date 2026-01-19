@@ -6,7 +6,7 @@ plugins {
 
 // Set as appropriate for your organization
 group = "org.openrewrite.recipe"
-description = "Migrate JavaScript projects using codemods"
+description = "Apply external CLI tools (codemods, linters, formatters, etc.) via OpenRewrite recipes"
 
 val rewriteVersion = rewriteRecipe.rewriteVersion.get()
 dependencies {

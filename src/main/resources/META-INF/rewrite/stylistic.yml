@@ -14,7 +14,7 @@
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.RecommendedESLintStyling
+name: org.openrewrite.cli.format.RecommendedESLintStyling
 displayName: Recommended ESLint Styling
 description: |-
   Collection of stylistic ESLint rules that are recommended by the [ESLint Style.](https://eslint.style/).
@@ -22,7 +22,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -126,7 +126,7 @@ recipeList:
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ArrayBracketNewline
+name: org.openrewrite.cli.format.ArrayBracketNewline
 displayName: Enforce linebreaks after opening and before closing array brackets
 description: |-
   Enforce linebreaks after opening and before closing array brackets
@@ -136,7 +136,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -154,7 +154,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ArrayBracketSpacing
+name: org.openrewrite.cli.format.ArrayBracketSpacing
 displayName: Enforce consistent spacing inside array brackets
 description: |-
   Enforce consistent spacing inside array brackets
@@ -164,7 +164,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -182,7 +182,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ArrayElementNewline
+name: org.openrewrite.cli.format.ArrayElementNewline
 displayName: Enforce line breaks after each array element
 description: |-
   Enforce line breaks after each array element
@@ -192,7 +192,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -210,7 +210,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ArrowParens
+name: org.openrewrite.cli.format.ArrowParens
 displayName: Require parentheses around arrow function arguments
 description: |-
   Require parentheses around arrow function arguments
@@ -220,7 +220,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -238,7 +238,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ArrowSpacing
+name: org.openrewrite.cli.format.ArrowSpacing
 displayName: Enforce consistent spacing before and after the arrow in arrow functions
 description: |-
   Enforce consistent spacing before and after the arrow in arrow functions
@@ -248,7 +248,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -266,7 +266,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.BlockSpacing
+name: org.openrewrite.cli.format.BlockSpacing
 displayName: Disallow or enforce spaces inside of blocks after opening block and before closing block
 description: |-
   Disallow or enforce spaces inside of blocks after opening block and before closing block
@@ -276,7 +276,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -294,7 +294,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.BraceStyle
+name: org.openrewrite.cli.format.BraceStyle
 displayName: Enforce consistent brace style for blocks
 description: |-
   Enforce consistent brace style for blocks
@@ -304,7 +304,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -322,7 +322,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.CommaDangle
+name: org.openrewrite.cli.format.CommaDangle
 displayName: Require or disallow trailing commas
 description: |-
   Require or disallow trailing commas
@@ -332,7 +332,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -350,7 +350,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.CommaSpacing
+name: org.openrewrite.cli.format.CommaSpacing
 displayName: Enforce consistent spacing before and after commas
 description: |-
   Enforce consistent spacing before and after commas
@@ -360,7 +360,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -378,7 +378,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.CommaStyle
+name: org.openrewrite.cli.format.CommaStyle
 displayName: Enforce consistent comma style
 description: |-
   Enforce consistent comma style
@@ -388,7 +388,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -406,7 +406,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ComputedPropertySpacing
+name: org.openrewrite.cli.format.ComputedPropertySpacing
 displayName: Enforce consistent spacing inside computed property brackets
 description: |-
   Enforce consistent spacing inside computed property brackets
@@ -416,7 +416,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -434,7 +434,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.DotLocation
+name: org.openrewrite.cli.format.DotLocation
 displayName: Enforce consistent newlines before and after dots
 description: |-
   Enforce consistent newlines before and after dots
@@ -444,7 +444,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -462,7 +462,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.EolLast
+name: org.openrewrite.cli.format.EolLast
 displayName: Require or disallow newline at the end of files
 description: |-
   Require or disallow newline at the end of files
@@ -472,7 +472,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -490,7 +490,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.FuncCallSpacing
+name: org.openrewrite.cli.format.FuncCallSpacing
 displayName: Require or disallow spacing between function identifiers and their invocations. Alias of &#x60;function-call-spacing&#x60;
 description: |-
   Require or disallow spacing between function identifiers and their invocations. Alias of &#x60;function-call-spacing&#x60;.
@@ -500,7 +500,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -518,7 +518,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.FunctionCallArgumentNewline
+name: org.openrewrite.cli.format.FunctionCallArgumentNewline
 displayName: Enforce line breaks between arguments of a function call
 description: |-
   Enforce line breaks between arguments of a function call
@@ -528,7 +528,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -546,7 +546,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.FunctionCallSpacing
+name: org.openrewrite.cli.format.FunctionCallSpacing
 displayName: Require or disallow spacing between function identifiers and their invocations
 description: |-
   Require or disallow spacing between function identifiers and their invocations
@@ -556,7 +556,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -574,7 +574,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.FunctionParenNewline
+name: org.openrewrite.cli.format.FunctionParenNewline
 displayName: Enforce consistent line breaks inside function parentheses
 description: |-
   Enforce consistent line breaks inside function parentheses
@@ -584,7 +584,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -602,7 +602,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.GeneratorStarSpacing
+name: org.openrewrite.cli.format.GeneratorStarSpacing
 displayName: Enforce consistent spacing around &#x60;*&#x60; operators in generator functions
 description: |-
   Enforce consistent spacing around &#x60;*&#x60; operators in generator functions
@@ -612,7 +612,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -630,7 +630,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ImplicitArrowLinebreak
+name: org.openrewrite.cli.format.ImplicitArrowLinebreak
 displayName: Enforce the location of arrow function bodies
 description: |-
   Enforce the location of arrow function bodies
@@ -640,7 +640,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -658,7 +658,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.Indent
+name: org.openrewrite.cli.format.Indent
 displayName: Enforce consistent indentation
 description: |-
   Enforce consistent indentation
@@ -668,7 +668,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -686,7 +686,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.IndentBinaryOps
+name: org.openrewrite.cli.format.IndentBinaryOps
 displayName: Indentation for binary operators
 description: |-
   Indentation for binary operators
@@ -696,7 +696,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -714,7 +714,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxClosingBracketLocation
+name: org.openrewrite.cli.format.JsxClosingBracketLocation
 displayName: Enforce closing bracket location in JSX
 description: |-
   Enforce closing bracket location in JSX
@@ -724,7 +724,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -742,7 +742,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxClosingTagLocation
+name: org.openrewrite.cli.format.JsxClosingTagLocation
 displayName: Enforce closing tag location for multiline JSX
 description: |-
   Enforce closing tag location for multiline JSX
@@ -752,7 +752,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -770,7 +770,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxCurlyBracePresence
+name: org.openrewrite.cli.format.JsxCurlyBracePresence
 displayName: Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
 description: |-
   Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
@@ -780,7 +780,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -798,7 +798,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxCurlyNewline
+name: org.openrewrite.cli.format.JsxCurlyNewline
 displayName: Enforce consistent linebreaks in curly braces in JSX attributes and expressions
 description: |-
   Enforce consistent linebreaks in curly braces in JSX attributes and expressions
@@ -808,7 +808,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -826,7 +826,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxCurlySpacing
+name: org.openrewrite.cli.format.JsxCurlySpacing
 displayName: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
 description: |-
   Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
@@ -836,7 +836,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -854,7 +854,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxEqualsSpacing
+name: org.openrewrite.cli.format.JsxEqualsSpacing
 displayName: Enforce or disallow spaces around equal signs in JSX attributes
 description: |-
   Enforce or disallow spaces around equal signs in JSX attributes
@@ -864,7 +864,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -882,7 +882,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxFirstPropNewLine
+name: org.openrewrite.cli.format.JsxFirstPropNewLine
 displayName: Enforce proper position of the first property in JSX
 description: |-
   Enforce proper position of the first property in JSX
@@ -892,7 +892,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -910,7 +910,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxIndent
+name: org.openrewrite.cli.format.JsxIndent
 displayName: Enforce JSX indentation
 description: |-
   Enforce JSX indentation
@@ -920,7 +920,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -938,7 +938,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxIndentProps
+name: org.openrewrite.cli.format.JsxIndentProps
 displayName: Enforce props indentation in JSX
 description: |-
   Enforce props indentation in JSX
@@ -948,7 +948,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -966,7 +966,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxMaxPropsPerLine
+name: org.openrewrite.cli.format.JsxMaxPropsPerLine
 displayName: Enforce maximum of props on a single line in JSX
 description: |-
   Enforce maximum of props on a single line in JSX
@@ -976,7 +976,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -994,7 +994,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxNewline
+name: org.openrewrite.cli.format.JsxNewline
 displayName: Require or prevent a new line after jsx elements and expressions
 description: |-
   Require or prevent a new line after jsx elements and expressions.
@@ -1004,7 +1004,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1022,7 +1022,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxOneExpressionPerLine
+name: org.openrewrite.cli.format.JsxOneExpressionPerLine
 displayName: Require one JSX element per line
 description: |-
   Require one JSX element per line
@@ -1032,7 +1032,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1050,7 +1050,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxPascalCase
+name: org.openrewrite.cli.format.JsxPascalCase
 displayName: Enforce PascalCase for user-defined JSX components
 description: |-
   Enforce PascalCase for user-defined JSX components
@@ -1060,7 +1060,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1078,7 +1078,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxPropsNoMultiSpaces
+name: org.openrewrite.cli.format.JsxPropsNoMultiSpaces
 displayName: Disallow multiple spaces between inline JSX props
 description: |-
   Disallow multiple spaces between inline JSX props
@@ -1088,7 +1088,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1106,7 +1106,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxQuotes
+name: org.openrewrite.cli.format.JsxQuotes
 displayName: Enforce the consistent use of either double or single quotes in JSX attributes
 description: |-
   Enforce the consistent use of either double or single quotes in JSX attributes
@@ -1116,7 +1116,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1134,7 +1134,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxSelfClosingComp
+name: org.openrewrite.cli.format.JsxSelfClosingComp
 displayName: Disallow extra closing tags for components without children
 description: |-
   Disallow extra closing tags for components without children
@@ -1144,7 +1144,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1162,7 +1162,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxSortProps
+name: org.openrewrite.cli.format.JsxSortProps
 displayName: Enforce props alphabetical sorting
 description: |-
   Enforce props alphabetical sorting
@@ -1172,7 +1172,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1190,7 +1190,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxTagSpacing
+name: org.openrewrite.cli.format.JsxTagSpacing
 displayName: Enforce whitespace in and around the JSX opening and closing brackets
 description: |-
   Enforce whitespace in and around the JSX opening and closing brackets
@@ -1200,7 +1200,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1218,7 +1218,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.JsxWrapMultilines
+name: org.openrewrite.cli.format.JsxWrapMultilines
 displayName: Disallow missing parentheses around multiline JSX
 description: |-
   Disallow missing parentheses around multiline JSX
@@ -1228,7 +1228,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1246,7 +1246,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.KeySpacing
+name: org.openrewrite.cli.format.KeySpacing
 displayName: Enforce consistent spacing between keys and values in object literal properties
 description: |-
   Enforce consistent spacing between keys and values in object literal properties
@@ -1256,7 +1256,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1274,7 +1274,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.KeywordSpacing
+name: org.openrewrite.cli.format.KeywordSpacing
 displayName: Enforce consistent spacing before and after keywords
 description: |-
   Enforce consistent spacing before and after keywords
@@ -1284,7 +1284,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1302,7 +1302,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.LinebreakStyle
+name: org.openrewrite.cli.format.LinebreakStyle
 displayName: Enforce consistent linebreak style
 description: |-
   Enforce consistent linebreak style
@@ -1312,7 +1312,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1330,7 +1330,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.LinesAroundComment
+name: org.openrewrite.cli.format.LinesAroundComment
 displayName: Require empty lines around comments
 description: |-
   Require empty lines around comments
@@ -1340,7 +1340,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1358,7 +1358,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.LinesBetweenClassMembers
+name: org.openrewrite.cli.format.LinesBetweenClassMembers
 displayName: Require or disallow an empty line between class members
 description: |-
   Require or disallow an empty line between class members
@@ -1368,7 +1368,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1386,7 +1386,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.MemberDelimiterStyle
+name: org.openrewrite.cli.format.MemberDelimiterStyle
 displayName: Require a specific member delimiter style for interfaces and type literals
 description: |-
   Require a specific member delimiter style for interfaces and type literals
@@ -1396,7 +1396,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1414,7 +1414,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.MultilineTernary
+name: org.openrewrite.cli.format.MultilineTernary
 displayName: Enforce newlines between operands of ternary expressions
 description: |-
   Enforce newlines between operands of ternary expressions
@@ -1424,7 +1424,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1442,7 +1442,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NewParens
+name: org.openrewrite.cli.format.NewParens
 displayName: Enforce or disallow parentheses when invoking a constructor with no arguments
 description: |-
   Enforce or disallow parentheses when invoking a constructor with no arguments
@@ -1452,7 +1452,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1470,7 +1470,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NewlinePerChainedCall
+name: org.openrewrite.cli.format.NewlinePerChainedCall
 displayName: Require a newline after each call in a method chain
 description: |-
   Require a newline after each call in a method chain
@@ -1480,7 +1480,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1498,7 +1498,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NoConfusingArrow
+name: org.openrewrite.cli.format.NoConfusingArrow
 displayName: Disallow arrow functions where they could be confused with comparisons
 description: |-
   Disallow arrow functions where they could be confused with comparisons
@@ -1508,7 +1508,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1526,7 +1526,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NoExtraParens
+name: org.openrewrite.cli.format.NoExtraParens
 displayName: Disallow unnecessary parentheses
 description: |-
   Disallow unnecessary parentheses
@@ -1536,7 +1536,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1554,7 +1554,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NoExtraSemi
+name: org.openrewrite.cli.format.NoExtraSemi
 displayName: Disallow unnecessary semicolons
 description: |-
   Disallow unnecessary semicolons
@@ -1564,7 +1564,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1582,7 +1582,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NoFloatingDecimal
+name: org.openrewrite.cli.format.NoFloatingDecimal
 displayName: Disallow leading or trailing decimal points in numeric literals
 description: |-
   Disallow leading or trailing decimal points in numeric literals
@@ -1592,7 +1592,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1610,7 +1610,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NoMultiSpaces
+name: org.openrewrite.cli.format.NoMultiSpaces
 displayName: Disallow multiple spaces
 description: |-
   Disallow multiple spaces
@@ -1620,7 +1620,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1638,7 +1638,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NoMultipleEmptyLines
+name: org.openrewrite.cli.format.NoMultipleEmptyLines
 displayName: Disallow multiple empty lines
 description: |-
   Disallow multiple empty lines
@@ -1648,7 +1648,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1666,7 +1666,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NoTrailingSpaces
+name: org.openrewrite.cli.format.NoTrailingSpaces
 displayName: Disallow trailing whitespace at the end of lines
 description: |-
   Disallow trailing whitespace at the end of lines
@@ -1676,7 +1676,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1694,7 +1694,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NoWhitespaceBeforeProperty
+name: org.openrewrite.cli.format.NoWhitespaceBeforeProperty
 displayName: Disallow whitespace before properties
 description: |-
   Disallow whitespace before properties
@@ -1704,7 +1704,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1722,7 +1722,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.NonblockStatementBodyPosition
+name: org.openrewrite.cli.format.NonblockStatementBodyPosition
 displayName: Enforce the location of single-line statements
 description: |-
   Enforce the location of single-line statements
@@ -1732,7 +1732,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1750,7 +1750,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ObjectCurlyNewline
+name: org.openrewrite.cli.format.ObjectCurlyNewline
 displayName: Enforce consistent line breaks after opening and before closing braces
 description: |-
   Enforce consistent line breaks after opening and before closing braces
@@ -1760,7 +1760,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1778,7 +1778,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ObjectCurlySpacing
+name: org.openrewrite.cli.format.ObjectCurlySpacing
 displayName: Enforce consistent spacing inside braces
 description: |-
   Enforce consistent spacing inside braces
@@ -1788,7 +1788,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1806,7 +1806,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.ObjectPropertyNewline
+name: org.openrewrite.cli.format.ObjectPropertyNewline
 displayName: Enforce placing object properties on separate lines
 description: |-
   Enforce placing object properties on separate lines
@@ -1816,7 +1816,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1834,7 +1834,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.OneVarDeclarationPerLine
+name: org.openrewrite.cli.format.OneVarDeclarationPerLine
 displayName: Require or disallow newlines around variable declarations
 description: |-
   Require or disallow newlines around variable declarations
@@ -1844,7 +1844,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1862,7 +1862,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.OperatorLinebreak
+name: org.openrewrite.cli.format.OperatorLinebreak
 displayName: Enforce consistent linebreak style for operators
 description: |-
   Enforce consistent linebreak style for operators
@@ -1872,7 +1872,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1890,7 +1890,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.PaddedBlocks
+name: org.openrewrite.cli.format.PaddedBlocks
 displayName: Require or disallow padding within blocks
 description: |-
   Require or disallow padding within blocks
@@ -1900,7 +1900,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1918,7 +1918,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.PaddingLineBetweenStatements
+name: org.openrewrite.cli.format.PaddingLineBetweenStatements
 displayName: Require or disallow padding lines between statements
 description: |-
   Require or disallow padding lines between statements
@@ -1928,7 +1928,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1946,7 +1946,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.QuoteProps
+name: org.openrewrite.cli.format.QuoteProps
 displayName: Require quotes around object literal property names
 description: |-
   Require quotes around object literal property names
@@ -1956,7 +1956,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1974,7 +1974,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.Quotes
+name: org.openrewrite.cli.format.Quotes
 displayName: Enforce the consistent use of either backticks, double, or single quotes
 description: |-
   Enforce the consistent use of either backticks, double, or single quotes
@@ -1984,7 +1984,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2002,7 +2002,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.RestSpreadSpacing
+name: org.openrewrite.cli.format.RestSpreadSpacing
 displayName: Enforce spacing between rest and spread operators and their expressions
 description: |-
   Enforce spacing between rest and spread operators and their expressions
@@ -2012,7 +2012,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2030,7 +2030,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.Semi
+name: org.openrewrite.cli.format.Semi
 displayName: Require or disallow semicolons instead of ASI
 description: |-
   Require or disallow semicolons instead of ASI
@@ -2040,7 +2040,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2058,7 +2058,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SemiSpacing
+name: org.openrewrite.cli.format.SemiSpacing
 displayName: Enforce consistent spacing before and after semicolons
 description: |-
   Enforce consistent spacing before and after semicolons
@@ -2068,7 +2068,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2086,7 +2086,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SemiStyle
+name: org.openrewrite.cli.format.SemiStyle
 displayName: Enforce location of semicolons
 description: |-
   Enforce location of semicolons
@@ -2096,7 +2096,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2114,7 +2114,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SpaceBeforeBlocks
+name: org.openrewrite.cli.format.SpaceBeforeBlocks
 displayName: Enforce consistent spacing before blocks
 description: |-
   Enforce consistent spacing before blocks
@@ -2124,7 +2124,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2142,7 +2142,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SpaceBeforeFunctionParen
+name: org.openrewrite.cli.format.SpaceBeforeFunctionParen
 displayName: Enforce consistent spacing before &#x60;function&#x60; definition opening parenthesis
 description: |-
   Enforce consistent spacing before &#x60;function&#x60; definition opening parenthesis
@@ -2152,7 +2152,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2170,7 +2170,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SpaceInParens
+name: org.openrewrite.cli.format.SpaceInParens
 displayName: Enforce consistent spacing inside parentheses
 description: |-
   Enforce consistent spacing inside parentheses
@@ -2180,7 +2180,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2198,7 +2198,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SpaceInfixOps
+name: org.openrewrite.cli.format.SpaceInfixOps
 displayName: Require spacing around infix operators
 description: |-
   Require spacing around infix operators
@@ -2208,7 +2208,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2226,7 +2226,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SpaceUnaryOps
+name: org.openrewrite.cli.format.SpaceUnaryOps
 displayName: Enforce consistent spacing before or after unary operators
 description: |-
   Enforce consistent spacing before or after unary operators
@@ -2236,7 +2236,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2254,7 +2254,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SpacedComment
+name: org.openrewrite.cli.format.SpacedComment
 displayName: Enforce consistent spacing after the &#x60;//&#x60; or &#x60;/*&#x60; in a comment
 description: |-
   Enforce consistent spacing after the &#x60;//&#x60; or &#x60;/*&#x60; in a comment
@@ -2264,7 +2264,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2282,7 +2282,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.SwitchColonSpacing
+name: org.openrewrite.cli.format.SwitchColonSpacing
 displayName: Enforce spacing around colons of switch statements
 description: |-
   Enforce spacing around colons of switch statements
@@ -2292,7 +2292,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2310,7 +2310,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.TemplateCurlySpacing
+name: org.openrewrite.cli.format.TemplateCurlySpacing
 displayName: Require or disallow spacing around embedded expressions of template strings
 description: |-
   Require or disallow spacing around embedded expressions of template strings
@@ -2320,7 +2320,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2338,7 +2338,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.TemplateTagSpacing
+name: org.openrewrite.cli.format.TemplateTagSpacing
 displayName: Require or disallow spacing between template tags and their literals
 description: |-
   Require or disallow spacing between template tags and their literals
@@ -2348,7 +2348,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2366,7 +2366,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.TypeAnnotationSpacing
+name: org.openrewrite.cli.format.TypeAnnotationSpacing
 displayName: Require consistent spacing around type annotations
 description: |-
   Require consistent spacing around type annotations
@@ -2376,7 +2376,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2394,7 +2394,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.TypeGenericSpacing
+name: org.openrewrite.cli.format.TypeGenericSpacing
 displayName: Enforces consistent spacing inside TypeScript type generics
 description: |-
   Enforces consistent spacing inside TypeScript type generics
@@ -2404,7 +2404,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2422,7 +2422,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.TypeNamedTupleSpacing
+name: org.openrewrite.cli.format.TypeNamedTupleSpacing
 displayName: Expect space before the type declaration in the named tuple
 description: |-
   Expect space before the type declaration in the named tuple
@@ -2432,7 +2432,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2450,7 +2450,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.WrapIife
+name: org.openrewrite.cli.format.WrapIife
 displayName: Require parentheses around immediate &#x60;function&#x60; invocations
 description: |-
   Require parentheses around immediate &#x60;function&#x60; invocations
@@ -2460,7 +2460,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2478,7 +2478,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.WrapRegex
+name: org.openrewrite.cli.format.WrapRegex
 displayName: Require parenthesis around regex literals
 description: |-
   Require parenthesis around regex literals
@@ -2488,7 +2488,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2506,7 +2506,7 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.format.YieldStarSpacing
+name: org.openrewrite.cli.format.YieldStarSpacing
 displayName: Require or disallow spacing around the &#x60;*&#x60; in &#x60;yield*&#x60; expressions
 description: |-
   Require or disallow spacing around the &#x60;*&#x60; in &#x60;yield*&#x60; expressions
@@ -2516,7 +2516,7 @@ tags:
   - eslint
   - stylistic
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {

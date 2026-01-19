@@ -14,12 +14,12 @@
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.RecommendedsvelteCodeCleanup
+name: org.openrewrite.cli.cleanup.svelte.RecommendedsvelteCodeCleanup
 displayName: Recommended svelte code cleanup
 description: |-
   Collection of cleanup ESLint rules from [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -61,13 +61,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.NoDynamicSlotName
+name: org.openrewrite.cli.cleanup.svelte.NoDynamicSlotName
 displayName: Disallow dynamic slot name
 description: |-
   Disallow dynamic slot name
   See rule details for [svelte/no-dynamic-slot-name](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-dynamic-slot-name/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -93,13 +93,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.RequireStoreReactiveAccess
+name: org.openrewrite.cli.cleanup.svelte.RequireStoreReactiveAccess
 displayName: Disallow to use of the store itself as an operand. Need to use $ prefix or get function
 description: |-
   Disallow to use of the store itself as an operand. Need to use $ prefix or get function.
   See rule details for [svelte/require-store-reactive-access](https://sveltejs.github.io/eslint-plugin-svelte/rules/require-store-reactive-access/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -125,13 +125,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.NoUselessMustaches
+name: org.openrewrite.cli.cleanup.svelte.NoUselessMustaches
 displayName: Disallow unnecessary mustache interpolations
 description: |-
   Disallow unnecessary mustache interpolations
   See rule details for [svelte/no-useless-mustaches](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-useless-mustaches/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -157,13 +157,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.FirstAttributeLinebreak
+name: org.openrewrite.cli.cleanup.svelte.FirstAttributeLinebreak
 displayName: Enforce the location of first attribute
 description: |-
   Enforce the location of first attribute
   See rule details for [svelte/first-attribute-linebreak](https://sveltejs.github.io/eslint-plugin-svelte/rules/first-attribute-linebreak/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -189,13 +189,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.HtmlClosingBracketSpacing
+name: org.openrewrite.cli.cleanup.svelte.HtmlClosingBracketSpacing
 displayName: Require or disallow a space before tag's closing brackets
 description: |-
   Require or disallow a space before tag's closing brackets
   See rule details for [svelte/html-closing-bracket-spacing](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-closing-bracket-spacing/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -221,13 +221,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.HtmlQuotes
+name: org.openrewrite.cli.cleanup.svelte.HtmlQuotes
 displayName: Enforce quotes style of HTML attributes
 description: |-
   Enforce quotes style of HTML attributes
   See rule details for [svelte/html-quotes](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-quotes/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -253,13 +253,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.HtmlSelfClosing
+name: org.openrewrite.cli.cleanup.svelte.HtmlSelfClosing
 displayName: Enforce self-closing style
 description: |-
   Enforce self-closing style
   See rule details for [svelte/html-self-closing](https://sveltejs.github.io/eslint-plugin-svelte/rules/html-self-closing/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -285,13 +285,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.Indent
+name: org.openrewrite.cli.cleanup.svelte.Indent
 displayName: Enforce consistent indentation
 description: |-
   Enforce consistent indentation
   See rule details for [svelte/indent](https://sveltejs.github.io/eslint-plugin-svelte/rules/indent/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -317,13 +317,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.MaxAttributesPerLine
+name: org.openrewrite.cli.cleanup.svelte.MaxAttributesPerLine
 displayName: Enforce the maximum number of attributes per line
 description: |-
   Enforce the maximum number of attributes per line
   See rule details for [svelte/max-attributes-per-line](https://sveltejs.github.io/eslint-plugin-svelte/rules/max-attributes-per-line/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -349,13 +349,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.MustacheSpacing
+name: org.openrewrite.cli.cleanup.svelte.MustacheSpacing
 displayName: Enforce unified spacing in mustache
 description: |-
   Enforce unified spacing in mustache
   See rule details for [svelte/mustache-spacing](https://sveltejs.github.io/eslint-plugin-svelte/rules/mustache-spacing/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -381,13 +381,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.NoSpacesAroundEqualSignsInAttribute
+name: org.openrewrite.cli.cleanup.svelte.NoSpacesAroundEqualSignsInAttribute
 displayName: Disallow spaces around equal signs in attribute
 description: |-
   Disallow spaces around equal signs in attribute
   See rule details for [svelte/no-spaces-around-equal-signs-in-attribute](https://sveltejs.github.io/eslint-plugin-svelte/rules/no-spaces-around-equal-signs-in-attribute/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -413,13 +413,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.PreferClassDirective
+name: org.openrewrite.cli.cleanup.svelte.PreferClassDirective
 displayName: Require class directives instead of ternary expressions
 description: |-
   Require class directives instead of ternary expressions
   See rule details for [svelte/prefer-class-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-class-directive/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -445,13 +445,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.PreferStyleDirective
+name: org.openrewrite.cli.cleanup.svelte.PreferStyleDirective
 displayName: Require style directives instead of style attribute
 description: |-
   Require style directives instead of style attribute
   See rule details for [svelte/prefer-style-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/prefer-style-directive/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -477,13 +477,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.ShorthandAttribute
+name: org.openrewrite.cli.cleanup.svelte.ShorthandAttribute
 displayName: Enforce use of shorthand syntax in attribute
 description: |-
   Enforce use of shorthand syntax in attribute
   See rule details for [svelte/shorthand-attribute](https://sveltejs.github.io/eslint-plugin-svelte/rules/shorthand-attribute/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -509,13 +509,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.ShorthandDirective
+name: org.openrewrite.cli.cleanup.svelte.ShorthandDirective
 displayName: Enforce use of shorthand syntax in directives
 description: |-
   Enforce use of shorthand syntax in directives
   See rule details for [svelte/shorthand-directive](https://sveltejs.github.io/eslint-plugin-svelte/rules/shorthand-directive/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -541,13 +541,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.SortAttributes
+name: org.openrewrite.cli.cleanup.svelte.SortAttributes
 displayName: Enforce order of attributes
 description: |-
   Enforce order of attributes
   See rule details for [svelte/sort-attributes](https://sveltejs.github.io/eslint-plugin-svelte/rules/sort-attributes/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true
@@ -573,13 +573,13 @@ tags:
   - eslint-plugin-svelte
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.svelte.SpacedHtmlComment
+name: org.openrewrite.cli.cleanup.svelte.SpacedHtmlComment
 displayName: Enforce consistent spacing after the <!-- and before the --> in a HTML comment
 description: |-
   Enforce consistent spacing after the <!-- and before the --> in a HTML comment
   See rule details for [svelte/spaced-html-comment](https://sveltejs.github.io/eslint-plugin-svelte/rules/spaced-html-comment/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns:
         - "**/*.svelte"
       fix: true

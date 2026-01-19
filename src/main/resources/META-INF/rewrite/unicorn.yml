@@ -14,13 +14,13 @@
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.BetterRegex
+name: org.openrewrite.cli.cleanup.javascript.BetterRegex
 displayName: Improve regexes by making them shorter, consistent, and safer
 description: |-
   Improve regexes by making them shorter, consistent, and safer.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/better-regex.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -38,13 +38,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.CatchErrorName
+name: org.openrewrite.cli.cleanup.javascript.CatchErrorName
 displayName: Enforce a specific parameter name in catch clauses
 description: |-
   Enforce a specific parameter name in catch clauses.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/catch-error-name.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -62,13 +62,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.ConsistentDestructuring
+name: org.openrewrite.cli.cleanup.javascript.ConsistentDestructuring
 displayName: Use destructured variables over properties
 description: |-
   Use destructured variables over properties.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/consistent-destructuring.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -86,13 +86,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.CustomErrorDefinition
+name: org.openrewrite.cli.cleanup.javascript.CustomErrorDefinition
 displayName: Enforce correct `Error` subclassing
 description: |-
   Enforce correct `Error` subclassing.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/custom-error-definition.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -110,13 +110,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.EmptyBraceSpaces
+name: org.openrewrite.cli.cleanup.javascript.EmptyBraceSpaces
 displayName: Enforce no spaces between braces
 description: |-
   Enforce no spaces between braces.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/empty-brace-spaces.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -134,13 +134,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.EscapeCase
+name: org.openrewrite.cli.cleanup.javascript.EscapeCase
 displayName: Require escape sequences to use uppercase values
 description: |-
   Require escape sequences to use uppercase values.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/escape-case.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -158,13 +158,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.ExplicitLengthCheck
+name: org.openrewrite.cli.cleanup.javascript.ExplicitLengthCheck
 displayName: Enforce explicitly comparing the length or size property of a value
 description: |-
   Enforce explicitly comparing the length or size property of a value.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/explicit-length-check.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -182,13 +182,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NewForBuiltins
+name: org.openrewrite.cli.cleanup.javascript.NewForBuiltins
 displayName: Enforce the use of `new` for all builtins, except `String`, `Number`, `Boolean`, `Symbol`, and `BigInt`
 description: |-
   Enforce the use of `new` for all builtins, except `String`, `Number`, `Boolean`, `Symbol`, and `BigInt`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/new-for-builtins.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -206,13 +206,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoArrayForEach
+name: org.openrewrite.cli.cleanup.javascript.NoArrayForEach
 displayName: Prefer `for…of` over the `forEach` method
 description: |-
   Prefer `for…of` over the `forEach` method.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-array-for-each.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -230,13 +230,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoArrayMethodThisArgument
+name: org.openrewrite.cli.cleanup.javascript.NoArrayMethodThisArgument
 displayName: Disallow using the `this` argument in array methods
 description: |-
   Disallow using the `this` argument in array methods.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-array-method-this-argument.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -254,13 +254,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoArrayPushPush
+name: org.openrewrite.cli.cleanup.javascript.NoArrayPushPush
 displayName: Enforce combining multiple `Array#push()` into one call
 description: |-
   Enforce combining multiple `Array#push()` into one call.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-array-push-push.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -278,13 +278,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoAwaitExpressionMember
+name: org.openrewrite.cli.cleanup.javascript.NoAwaitExpressionMember
 displayName: Disallow member access from `await` expression
 description: |-
   Disallow member access from `await` expression.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-await-expression-member.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -302,13 +302,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoConsoleSpaces
+name: org.openrewrite.cli.cleanup.javascript.NoConsoleSpaces
 displayName: Do not use leading/trailing space between `console.log` parameters
 description: |-
   Do not use leading/trailing space between `console.log` parameters.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-console-spaces.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -326,13 +326,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoForLoop
+name: org.openrewrite.cli.cleanup.javascript.NoForLoop
 displayName: Do not use a `for` loop that can be replaced with a `for-of` loop
 description: |-
   Do not use a `for` loop that can be replaced with a `for-of` loop.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-for-loop.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -350,13 +350,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoHexEscape
+name: org.openrewrite.cli.cleanup.javascript.NoHexEscape
 displayName: Enforce the use of Unicode escapes instead of hexadecimal escapes
 description: |-
   Enforce the use of Unicode escapes instead of hexadecimal escapes.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-hex-escape.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -374,13 +374,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoInstanceofArray
+name: org.openrewrite.cli.cleanup.javascript.NoInstanceofArray
 displayName: Require `Array.isArray()` instead of `instanceof Array`
 description: |-
   Require `Array.isArray()` instead of `instanceof Array`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-instanceof-array.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -398,13 +398,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoLonelyIf
+name: org.openrewrite.cli.cleanup.javascript.NoLonelyIf
 displayName: Disallow `if` statements as the only statement in `if` blocks without `else`
 description: |-
   Disallow `if` statements as the only statement in `if` blocks without `else`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-lonely-if.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -422,13 +422,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoNegatedCondition
+name: org.openrewrite.cli.cleanup.javascript.NoNegatedCondition
 displayName: Disallow negated conditions
 description: |-
   Disallow negated conditions.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-negated-condition.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -446,13 +446,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoNestedTernary
+name: org.openrewrite.cli.cleanup.javascript.NoNestedTernary
 displayName: Disallow nested ternary expressions
 description: |-
   Disallow nested ternary expressions.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-nested-ternary.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -470,13 +470,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoNewArray
+name: org.openrewrite.cli.cleanup.javascript.NoNewArray
 displayName: Disallow `new Array()`
 description: |-
   Disallow `new Array()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-new-array.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -494,13 +494,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoNewBuffer
+name: org.openrewrite.cli.cleanup.javascript.NoNewBuffer
 displayName: Enforce the use of `Buffer.from()` and `Buffer.alloc()` instead of the deprecated `new Buffer()`
 description: |-
   Enforce the use of `Buffer.from()` and `Buffer.alloc()` instead of the deprecated `new Buffer()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-new-buffer.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -518,13 +518,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoNull
+name: org.openrewrite.cli.cleanup.javascript.NoNull
 displayName: Disallow the use of the `null` literal
 description: |-
   Disallow the use of the `null` literal.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-null.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -542,13 +542,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoStaticOnlyClass
+name: org.openrewrite.cli.cleanup.javascript.NoStaticOnlyClass
 displayName: Disallow classes that only have static members
 description: |-
   Disallow classes that only have static members.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-static-only-class.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -566,13 +566,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoTypeofUndefined
+name: org.openrewrite.cli.cleanup.javascript.NoTypeofUndefined
 displayName: Disallow comparing `undefined` using `typeof`
 description: |-
   Disallow comparing `undefined` using `typeof`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-typeof-undefined.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -590,13 +590,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUnnecessaryAwait
+name: org.openrewrite.cli.cleanup.javascript.NoUnnecessaryAwait
 displayName: Disallow awaiting non-promise values
 description: |-
   Disallow awaiting non-promise values.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-unnecessary-await.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -614,13 +614,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUnreadableArrayDestructuring
+name: org.openrewrite.cli.cleanup.javascript.NoUnreadableArrayDestructuring
 displayName: Disallow unreadable array destructuring
 description: |-
   Disallow unreadable array destructuring.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-unreadable-array-destructuring.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -638,13 +638,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessFallbackInSpread
+name: org.openrewrite.cli.cleanup.javascript.NoUselessFallbackInSpread
 displayName: Disallow useless fallback when spreading in object literals
 description: |-
   Disallow useless fallback when spreading in object literals.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-fallback-in-spread.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -662,13 +662,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessLengthCheck
+name: org.openrewrite.cli.cleanup.javascript.NoUselessLengthCheck
 displayName: Disallow useless array `length` check
 description: |-
   Disallow useless array `length` check.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-length-check.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -686,13 +686,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessPromiseResolveReject
+name: org.openrewrite.cli.cleanup.javascript.NoUselessPromiseResolveReject
 displayName: Disallow returning/yielding `Promise.resolve()`/`reject()` in `async` functions or promise callbacks
 description: |-
   Disallow returning/yielding `Promise.resolve()`/`reject()` in `async` functions or promise callbacks.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-promise-resolve-reject.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -710,13 +710,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessSpread
+name: org.openrewrite.cli.cleanup.javascript.NoUselessSpread
 displayName: Disallow unnecessary spread
 description: |-
   Disallow unnecessary spread.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-spread.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -734,13 +734,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessUndefined
+name: org.openrewrite.cli.cleanup.javascript.NoUselessUndefined
 displayName: Disallow useless `undefined`
 description: |-
   Disallow useless `undefined`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-useless-undefined.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -758,13 +758,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoZeroFractions
+name: org.openrewrite.cli.cleanup.javascript.NoZeroFractions
 displayName: Disallow number literals with zero fractions or dangling dots
 description: |-
   Disallow number literals with zero fractions or dangling dots.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-zero-fractions.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -782,13 +782,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NumberLiteralCase
+name: org.openrewrite.cli.cleanup.javascript.NumberLiteralCase
 displayName: Enforce proper case for numeric literals
 description: |-
   Enforce proper case for numeric literals.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/number-literal-case.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -806,13 +806,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NumericSeparatorsStyle
+name: org.openrewrite.cli.cleanup.javascript.NumericSeparatorsStyle
 displayName: Enforce the style of numeric separators by correctly grouping digits
 description: |-
   Enforce the style of numeric separators by correctly grouping digits.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/numeric-separators-style.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -830,13 +830,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferAddEventListener
+name: org.openrewrite.cli.cleanup.javascript.PreferAddEventListener
 displayName: Prefer `.addEventListener()` and `.removeEventListener()` over on-functions
 description: |-
   Prefer `.addEventListener()` and `.removeEventListener()` over on-functions.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-add-event-listener.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -854,13 +854,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferArrayFind
+name: org.openrewrite.cli.cleanup.javascript.PreferArrayFind
 displayName: Prefer `.find()` and `.findLast()` over the first or last element from `.filter()`
 description: |-
   Prefer `.find()` and `.findLast()` over the first or last element from `.filter()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-find.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -878,13 +878,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferArrayFlat
+name: org.openrewrite.cli.cleanup.javascript.PreferArrayFlat
 displayName: Prefer `Array#flat()` over legacy techniques to flatten arrays
 description: |-
   Prefer `Array#flat()` over legacy techniques to flatten arrays.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-flat.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -902,13 +902,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferArrayFlatMap
+name: org.openrewrite.cli.cleanup.javascript.PreferArrayFlatMap
 displayName: Prefer `.flatMap()` over `.map().flat()`
 description: |-
   Prefer `.flatMap()` over `.map().flat()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-flat-map.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -926,13 +926,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferArrayIndexOf
+name: org.openrewrite.cli.cleanup.javascript.PreferArrayIndexOf
 displayName: Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item
 description: |-
   Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-index-of.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -950,13 +950,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferArraySome
+name: org.openrewrite.cli.cleanup.javascript.PreferArraySome
 displayName: Prefer `.some()` over `.filter().length` check and `.{find,findLast}()`
 description: |-
   Prefer `.some()` over `.filter().length` check and `.{find,findLast}()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-array-some.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -974,13 +974,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferAt
+name: org.openrewrite.cli.cleanup.javascript.PreferAt
 displayName: Prefer `.at()` method for index access and `String#charAt()`
 description: |-
   Prefer `.at()` method for index access and `String#charAt()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-at.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -998,13 +998,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferDateNow
+name: org.openrewrite.cli.cleanup.javascript.PreferDateNow
 displayName: Prefer `Date.now()` to get the number of milliseconds since the Unix Epoch
 description: |-
   Prefer `Date.now()` to get the number of milliseconds since the Unix Epoch.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-date-now.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1022,13 +1022,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferDefaultParameters
+name: org.openrewrite.cli.cleanup.javascript.PreferDefaultParameters
 displayName: Prefer default parameters over reassignment
 description: |-
   Prefer default parameters over reassignment.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-default-parameters.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1046,13 +1046,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferDomNodeAppend
+name: org.openrewrite.cli.cleanup.javascript.PreferDomNodeAppend
 displayName: Prefer `Node#append()` over `Node#appendChild()`
 description: |-
   Prefer `Node#append()` over `Node#appendChild()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-dom-node-append.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1070,13 +1070,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferDomNodeDataset
+name: org.openrewrite.cli.cleanup.javascript.PreferDomNodeDataset
 displayName: Prefer using `.dataset` on DOM elements over calling attribute methods
 description: |-
   Prefer using `.dataset` on DOM elements over calling attribute methods.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-dom-node-dataset.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1094,13 +1094,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferDomNodeRemove
+name: org.openrewrite.cli.cleanup.javascript.PreferDomNodeRemove
 displayName: Prefer `childNode.remove()` over `parentNode.removeChild(childNode)`
 description: |-
   Prefer `childNode.remove()` over `parentNode.removeChild(childNode)`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-dom-node-remove.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1118,13 +1118,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferExportFrom
+name: org.openrewrite.cli.cleanup.javascript.PreferExportFrom
 displayName: Prefer `export…from` when re-exporting
 description: |-
   Prefer `export…from` when re-exporting.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-export-from.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1142,13 +1142,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferIncludes
+name: org.openrewrite.cli.cleanup.javascript.PreferIncludes
 displayName: Prefer `.includes()` over `.indexOf()` and `Array#some()` when checking for existence or non-existence
 description: |-
   Prefer `.includes()` over `.indexOf()` and `Array#some()` when checking for existence or non-existence.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-includes.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1166,13 +1166,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferJsonParseBuffer
+name: org.openrewrite.cli.cleanup.javascript.PreferJsonParseBuffer
 displayName: Prefer reading a JSON file as a buffer
 description: |-
   Prefer reading a JSON file as a buffer.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-json-parse-buffer.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1190,13 +1190,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferKeyboardEventKey
+name: org.openrewrite.cli.cleanup.javascript.PreferKeyboardEventKey
 displayName: Prefer `KeyboardEvent#key` over `KeyboardEvent#keyCode`
 description: |-
   Prefer `KeyboardEvent#key` over `KeyboardEvent#keyCode`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-keyboard-event-key.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1214,13 +1214,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferMathTrunc
+name: org.openrewrite.cli.cleanup.javascript.PreferMathTrunc
 displayName: Enforce the use of `Math.trunc()` instead of bitwise operators
 description: |-
   Enforce the use of `Math.trunc()` instead of bitwise operators.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-math-trunc.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1238,13 +1238,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferModernDomApis
+name: org.openrewrite.cli.cleanup.javascript.PreferModernDomApis
 displayName: Prefer `.before()` over `.insertBefore()`, `.replaceWith()` over `.replaceChild()`, prefer one of `.before()`, `.after()`, `.append()` or `.prepend()` over `insertAdjacentText()` and `insertAdjacentElement()`
 description: |-
   Prefer `.before()` over `.insertBefore()`, `.replaceWith()` over `.replaceChild()`, prefer one of `.before()`, `.after()`, `.append()` or `.prepend()` over `insertAdjacentText()` and `insertAdjacentElement()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-modern-dom-apis.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1262,13 +1262,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferModernMathApis
+name: org.openrewrite.cli.cleanup.javascript.PreferModernMathApis
 displayName: Prefer modern Math APIs over legacy patterns
 description: |-
   Prefer modern Math APIs over legacy patterns.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-modern-math-apis.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1286,13 +1286,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferModule
+name: org.openrewrite.cli.cleanup.javascript.PreferModule
 displayName: Prefer JavaScript modules (ESM) over CommonJS
 description: |-
   Prefer JavaScript modules (ESM) over CommonJS.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-module.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1310,13 +1310,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferNativeCoercionFunctions
+name: org.openrewrite.cli.cleanup.javascript.PreferNativeCoercionFunctions
 displayName: Prefer using `String`, `Number`, `BigInt`, `Boolean`, and `Symbol` directly
 description: |-
   Prefer using `String`, `Number`, `BigInt`, `Boolean`, and `Symbol` directly.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-native-coercion-functions.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1334,13 +1334,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferNegativeIndex
+name: org.openrewrite.cli.cleanup.javascript.PreferNegativeIndex
 displayName: Prefer negative index over `.length - index` when possible
 description: |-
   Prefer negative index over `.length - index` when possible.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-negative-index.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1358,13 +1358,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferNodeProtocol
+name: org.openrewrite.cli.cleanup.javascript.PreferNodeProtocol
 displayName: Prefer using the `node:` protocol when importing Node.js builtin modules
 description: |-
   Prefer using the `node:` protocol when importing Node.js builtin modules.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-node-protocol.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1382,13 +1382,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferNumberProperties
+name: org.openrewrite.cli.cleanup.javascript.PreferNumberProperties
 displayName: Prefer `Number` static properties over global ones
 description: |-
   Prefer `Number` static properties over global ones.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-number-properties.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1406,13 +1406,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferObjectFromEntries
+name: org.openrewrite.cli.cleanup.javascript.PreferObjectFromEntries
 displayName: Prefer using `Object.fromEntries()` to transform a list of key-value pairs into an object
 description: |-
   Prefer using `Object.fromEntries()` to transform a list of key-value pairs into an object.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-object-from-entries.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1430,13 +1430,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferOptionalCatchBinding
+name: org.openrewrite.cli.cleanup.javascript.PreferOptionalCatchBinding
 displayName: Prefer omitting the catch binding parameter
 description: |-
   Prefer omitting the catch binding parameter.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-optional-catch-binding.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1454,13 +1454,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferPrototypeMethods
+name: org.openrewrite.cli.cleanup.javascript.PreferPrototypeMethods
 displayName: Prefer borrowing methods from the prototype instead of the instance
 description: |-
   Prefer borrowing methods from the prototype instead of the instance.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-prototype-methods.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1478,13 +1478,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferQuerySelector
+name: org.openrewrite.cli.cleanup.javascript.PreferQuerySelector
 displayName: Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()`
 description: |-
   Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-query-selector.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1502,13 +1502,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferReflectApply
+name: org.openrewrite.cli.cleanup.javascript.PreferReflectApply
 displayName: Prefer `Reflect.apply()` over `Function#apply()`
 description: |-
   Prefer `Reflect.apply()` over `Function#apply()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-reflect-apply.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1526,13 +1526,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferRegexpTest
+name: org.openrewrite.cli.cleanup.javascript.PreferRegexpTest
 displayName: Prefer `RegExp#test()` over `String#match()` and `RegExp#exec()`
 description: |-
   Prefer `RegExp#test()` over `String#match()` and `RegExp#exec()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-regexp-test.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1550,13 +1550,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferSetHas
+name: org.openrewrite.cli.cleanup.javascript.PreferSetHas
 displayName: Prefer `Set#has()` over `Array#includes()` when checking for existence or non-existence
 description: |-
   Prefer `Set#has()` over `Array#includes()` when checking for existence or non-existence.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-set-has.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1574,13 +1574,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferSetSize
+name: org.openrewrite.cli.cleanup.javascript.PreferSetSize
 displayName: Prefer using `Set#size` instead of `Array#length`
 description: |-
   Prefer using `Set#size` instead of `Array#length`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-set-size.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1598,13 +1598,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferSpread
+name: org.openrewrite.cli.cleanup.javascript.PreferSpread
 displayName: Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#{slice,toSpliced}()` and `String#split('')`
 description: |-
   Prefer the spread operator over `Array.from()`, `Array#concat()`, `Array#{slice,toSpliced}()` and `String#split('')`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-spread.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1622,13 +1622,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferStringReplaceAll
+name: org.openrewrite.cli.cleanup.javascript.PreferStringReplaceAll
 displayName: Prefer `String#replaceAll()` over regex searches with the global flag
 description: |-
   Prefer `String#replaceAll()` over regex searches with the global flag.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-string-replace-all.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1646,13 +1646,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferStringSlice
+name: org.openrewrite.cli.cleanup.javascript.PreferStringSlice
 displayName: Prefer `String#slice()` over `String#substr()` and `String#substring()`
 description: |-
   Prefer `String#slice()` over `String#substr()` and `String#substring()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-string-slice.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1670,13 +1670,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferStringStartsEndsWith
+name: org.openrewrite.cli.cleanup.javascript.PreferStringStartsEndsWith
 displayName: Prefer `String#startsWith()` & `String#endsWith()` over `RegExp#test()`
 description: |-
   Prefer `String#startsWith()` & `String#endsWith()` over `RegExp#test()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-string-starts-ends-with.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1694,13 +1694,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferStringTrimStartEnd
+name: org.openrewrite.cli.cleanup.javascript.PreferStringTrimStartEnd
 displayName: Prefer `String#trimStart()` / `String#trimEnd()` over `String#trimLeft()` / `String#trimRight()`
 description: |-
   Prefer `String#trimStart()` / `String#trimEnd()` over `String#trimLeft()` / `String#trimRight()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-string-trim-start-end.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1718,13 +1718,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferSwitch
+name: org.openrewrite.cli.cleanup.javascript.PreferSwitch
 displayName: Prefer `switch` over multiple `else-if`
 description: |-
   Prefer `switch` over multiple `else-if`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-switch.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1742,13 +1742,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferTernary
+name: org.openrewrite.cli.cleanup.javascript.PreferTernary
 displayName: Prefer ternary expressions over simple `if-else` statements
 description: |-
   Prefer ternary expressions over simple `if-else` statements.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-ternary.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1766,13 +1766,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferTypeError
+name: org.openrewrite.cli.cleanup.javascript.PreferTypeError
 displayName: Enforce throwing `TypeError` in type checking conditions
 description: |-
   Enforce throwing `TypeError` in type checking conditions.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prefer-type-error.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1790,13 +1790,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreventAbbreviations
+name: org.openrewrite.cli.cleanup.javascript.PreventAbbreviations
 displayName: Prevent abbreviations
 description: |-
   Prevent abbreviations.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/prevent-abbreviations.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1814,13 +1814,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.RelativeUrlStyle
+name: org.openrewrite.cli.cleanup.javascript.RelativeUrlStyle
 displayName: Enforce consistent relative URL style
 description: |-
   Enforce consistent relative URL style.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/relative-url-style.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1838,13 +1838,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.RequireArrayJoinSeparator
+name: org.openrewrite.cli.cleanup.javascript.RequireArrayJoinSeparator
 displayName: Enforce using the separator argument with `Array#join()`
 description: |-
   Enforce using the separator argument with `Array#join()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/require-array-join-separator.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1862,13 +1862,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.RequireNumberToFixedDigitsArgument
+name: org.openrewrite.cli.cleanup.javascript.RequireNumberToFixedDigitsArgument
 displayName: Enforce using the digits argument with `Number#toFixed()`
 description: |-
   Enforce using the digits argument with `Number#toFixed()`.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/require-number-to-fixed-digits-argument.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1886,13 +1886,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.StringContent
+name: org.openrewrite.cli.cleanup.javascript.StringContent
 displayName: Enforce better string content
 description: |-
   Enforce better string content.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/string-content.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1910,13 +1910,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.SwitchCaseBraces
+name: org.openrewrite.cli.cleanup.javascript.SwitchCaseBraces
 displayName: Enforce consistent brace style for case clauses
 description: |-
   Enforce consistent brace style for case clauses.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/switch-case-braces.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1934,13 +1934,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.TemplateIndent
+name: org.openrewrite.cli.cleanup.javascript.TemplateIndent
 displayName: Fix whitespace-insensitive template indentation
 description: |-
   Fix whitespace-insensitive template indentation.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/template-indent.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1958,13 +1958,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.TextEncodingIdentifierCase
+name: org.openrewrite.cli.cleanup.javascript.TextEncodingIdentifierCase
 displayName: Enforce consistent case for text encoding identifiers
 description: |-
   Enforce consistent case for text encoding identifiers.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/text-encoding-identifier-case.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1982,13 +1982,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.ThrowNewError
+name: org.openrewrite.cli.cleanup.javascript.ThrowNewError
 displayName: Require `new` when throwing an error
 description: |-
   Require `new` when throwing an error.
   See [rule details](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/throw-new-error.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {

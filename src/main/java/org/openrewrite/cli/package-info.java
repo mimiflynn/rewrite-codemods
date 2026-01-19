@@ -15,7 +15,7 @@
  */
 @NullMarked
 @NonNullFields
-package org.openrewrite.codemods;
+package org.openrewrite.cli;
 
 import org.jspecify.annotations.NullMarked;
 import org.openrewrite.internal.lang.NonNullFields;

@@ -15,7 +15,7 @@
  */
 
 
-package org.openrewrite.codemods;
+package org.openrewrite.cli;
 
 import lombok.Getter;
 import org.openrewrite.ExecutionContext;

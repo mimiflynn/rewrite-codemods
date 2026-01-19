@@ -14,12 +14,12 @@
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.RecommendedVueCodeCleanup
+name: org.openrewrite.cli.cleanup.vue.RecommendedVueCodeCleanup
 displayName: Recommended vue code cleanup
 description: |-
   Collection of cleanup ESLint rules from [eslint-plugin-vue](https://eslint.vuejs.org/).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -104,13 +104,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.AttributesOrder
+name: org.openrewrite.cli.cleanup.vue.AttributesOrder
 displayName: Enforce order of attributes
 description: |-
   Enforce order of attributes
   See rule details for [vue/attributes-order](https://eslint.vuejs.org/rules/attributes-order.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -140,13 +140,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ComponentTagsOrder
+name: org.openrewrite.cli.cleanup.vue.ComponentTagsOrder
 displayName: Enforce order of component top-level elements
 description: |-
   Enforce order of component top-level elements
   See rule details for [vue/component-tags-order](https://eslint.vuejs.org/rules/component-tags-order.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -176,13 +176,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.OrderInComponents
+name: org.openrewrite.cli.cleanup.vue.OrderInComponents
 displayName: Enforce order of properties in components
 description: |-
   Enforce order of properties in components
   See rule details for [vue/order-in-components](https://eslint.vuejs.org/rules/order-in-components.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -212,13 +212,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ThisInTemplate
+name: org.openrewrite.cli.cleanup.vue.ThisInTemplate
 displayName: Disallow usage of this in template
 description: |-
   Disallow usage of this in template
   See rule details for [vue/this-in-template](https://eslint.vuejs.org/rules/this-in-template.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -248,13 +248,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.BlockOrder
+name: org.openrewrite.cli.cleanup.vue.BlockOrder
 displayName: Enforce order of component top-level elements
 description: |-
   Enforce order of component top-level elements
   See rule details for [vue/block-order](https://eslint.vuejs.org/rules/block-order.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -284,13 +284,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.BlockTagNewline
+name: org.openrewrite.cli.cleanup.vue.BlockTagNewline
 displayName: Enforce line breaks after opening and before closing block-level tags
 description: |-
   Enforce line breaks after opening and before closing block-level tags
   See rule details for [vue/block-tag-newline](https://eslint.vuejs.org/rules/block-tag-newline.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -320,13 +320,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ComponentNameInTemplateCasing
+name: org.openrewrite.cli.cleanup.vue.ComponentNameInTemplateCasing
 displayName: Enforce specific casing for the component naming style in template
 description: |-
   Enforce specific casing for the component naming style in template
   See rule details for [vue/component-name-in-template-casing](https://eslint.vuejs.org/rules/component-name-in-template-casing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -356,13 +356,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ComponentOptionsNameCasing
+name: org.openrewrite.cli.cleanup.vue.ComponentOptionsNameCasing
 displayName: Enforce the casing of component name in components options
 description: |-
   Enforce the casing of component name in components options
   See rule details for [vue/component-options-name-casing](https://eslint.vuejs.org/rules/component-options-name-casing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -392,13 +392,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.DefineMacrosOrder
+name: org.openrewrite.cli.cleanup.vue.DefineMacrosOrder
 displayName: Enforce order of defineEmits and defineProps compiler macros
 description: |-
   Enforce order of defineEmits and defineProps compiler macros
   See rule details for [vue/define-macros-order](https://eslint.vuejs.org/rules/define-macros-order.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -428,13 +428,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.HtmlCommentContentNewline
+name: org.openrewrite.cli.cleanup.vue.HtmlCommentContentNewline
 displayName: Enforce unified line brake in HTML comments
 description: |-
   Enforce unified line brake in HTML comments
   See rule details for [vue/html-comment-content-newline](https://eslint.vuejs.org/rules/html-comment-content-newline.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -464,13 +464,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.HtmlCommentContentSpacing
+name: org.openrewrite.cli.cleanup.vue.HtmlCommentContentSpacing
 displayName: Enforce unified spacing in HTML comments
 description: |-
   Enforce unified spacing in HTML comments
   See rule details for [vue/html-comment-content-spacing](https://eslint.vuejs.org/rules/html-comment-content-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -500,13 +500,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.HtmlCommentIndent
+name: org.openrewrite.cli.cleanup.vue.HtmlCommentIndent
 displayName: Enforce consistent indentation in HTML comments
 description: |-
   Enforce consistent indentation in HTML comments
   See rule details for [vue/html-comment-indent](https://eslint.vuejs.org/rules/html-comment-indent.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -536,13 +536,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.NewLineBetweenMultiLineProperty
+name: org.openrewrite.cli.cleanup.vue.NewLineBetweenMultiLineProperty
 displayName: Enforce new lines between multi-line properties in Vue components
 description: |-
   Enforce new lines between multi-line properties in Vue components
   See rule details for [vue/new-line-between-multi-line-property](https://eslint.vuejs.org/rules/new-line-between-multi-line-property.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -572,13 +572,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.NextTickStyle
+name: org.openrewrite.cli.cleanup.vue.NextTickStyle
 displayName: Enforce Promise or callback style in nextTick
 description: |-
   Enforce Promise or callback style in nextTick
   See rule details for [vue/next-tick-style](https://eslint.vuejs.org/rules/next-tick-style.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -608,13 +608,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.NoRequiredPropWithDefault
+name: org.openrewrite.cli.cleanup.vue.NoRequiredPropWithDefault
 displayName: Enforce props with default values to be optional
 description: |-
   Enforce props with default values to be optional
   See rule details for [vue/no-required-prop-with-default](https://eslint.vuejs.org/rules/no-required-prop-with-default.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -644,13 +644,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.NoUnsupportedFeatures
+name: org.openrewrite.cli.cleanup.vue.NoUnsupportedFeatures
 displayName: Disallow unsupported Vue.js syntax on the specified version
 description: |-
   Disallow unsupported Vue.js syntax on the specified version
   See rule details for [vue/no-unsupported-features](https://eslint.vuejs.org/rules/no-unsupported-features.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -680,13 +680,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.NoUselessMustaches
+name: org.openrewrite.cli.cleanup.vue.NoUselessMustaches
 displayName: Disallow unnecessary mustache interpolations
 description: |-
   Disallow unnecessary mustache interpolations
   See rule details for [vue/no-useless-mustaches](https://eslint.vuejs.org/rules/no-useless-mustaches.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -716,13 +716,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.NoUselessVBind
+name: org.openrewrite.cli.cleanup.vue.NoUselessVBind
 displayName: Disallow unnecessary v-bind directives
 description: |-
   Disallow unnecessary v-bind directives
   See rule details for [vue/no-useless-v-bind](https://eslint.vuejs.org/rules/no-useless-v-bind.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -752,13 +752,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.PaddingLineBetweenBlocks
+name: org.openrewrite.cli.cleanup.vue.PaddingLineBetweenBlocks
 displayName: Require or disallow padding lines between blocks
 description: |-
   Require or disallow padding lines between blocks
   See rule details for [vue/padding-line-between-blocks](https://eslint.vuejs.org/rules/padding-line-between-blocks.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -788,13 +788,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.PaddingLineBetweenTags
+name: org.openrewrite.cli.cleanup.vue.PaddingLineBetweenTags
 displayName: Require or disallow newlines between sibling tags in template
 description: |-
   Require or disallow newlines between sibling tags in template
   See rule details for [vue/padding-line-between-tags](https://eslint.vuejs.org/rules/padding-line-between-tags.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -824,13 +824,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.PaddingLinesInComponentDefinition
+name: org.openrewrite.cli.cleanup.vue.PaddingLinesInComponentDefinition
 displayName: Require or disallow padding lines in component definition
 description: |-
   Require or disallow padding lines in component definition
   See rule details for [vue/padding-lines-in-component-definition](https://eslint.vuejs.org/rules/padding-lines-in-component-definition.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -860,13 +860,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.PreferDefineOptions
+name: org.openrewrite.cli.cleanup.vue.PreferDefineOptions
 displayName: Enforce use of defineOptions instead of default export
 description: |-
   Enforce use of defineOptions instead of default export.
   See rule details for [vue/prefer-define-options](https://eslint.vuejs.org/rules/prefer-define-options.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -896,13 +896,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.PreferSeparateStaticClass
+name: org.openrewrite.cli.cleanup.vue.PreferSeparateStaticClass
 displayName: Require static class names in template to be in a separate class attribute
 description: |-
   Require static class names in template to be in a separate class attribute
   See rule details for [vue/prefer-separate-static-class](https://eslint.vuejs.org/rules/prefer-separate-static-class.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -932,13 +932,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ScriptIndent
+name: org.openrewrite.cli.cleanup.vue.ScriptIndent
 displayName: Enforce consistent indentation in `<script>`
 description: |-
   Enforce consistent indentation in `<script>`
   See rule details for [vue/script-indent](https://eslint.vuejs.org/rules/script-indent.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -968,13 +968,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.StaticClassNamesOrder
+name: org.openrewrite.cli.cleanup.vue.StaticClassNamesOrder
 displayName: Enforce static class names order
 description: |-
   Enforce static class names order
   See rule details for [vue/static-class-names-order](https://eslint.vuejs.org/rules/static-class-names-order.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1004,13 +1004,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.VForDelimiterStyle
+name: org.openrewrite.cli.cleanup.vue.VForDelimiterStyle
 displayName: Enforce v-for directive's delimiter style
 description: |-
   Enforce v-for directive's delimiter style
   See rule details for [vue/v-for-delimiter-style](https://eslint.vuejs.org/rules/v-for-delimiter-style.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1040,13 +1040,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.VIfElseKey
+name: org.openrewrite.cli.cleanup.vue.VIfElseKey
 displayName: Require key attribute for conditionally rendered repeated components
 description: |-
   Require key attribute for conditionally rendered repeated components
   See rule details for [vue/v-if-else-key](https://eslint.vuejs.org/rules/v-if-else-key.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1076,13 +1076,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.VOnHandlerStyle
+name: org.openrewrite.cli.cleanup.vue.VOnHandlerStyle
 displayName: Enforce writing style for handlers in v-on directives
 description: |-
   Enforce writing style for handlers in v-on directives
   See rule details for [vue/v-on-handler-style](https://eslint.vuejs.org/rules/v-on-handler-style.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1112,13 +1112,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ArrayBracketNewline
+name: org.openrewrite.cli.cleanup.vue.ArrayBracketNewline
 displayName: Enforce linebreaks after opening and before closing array brackets in `<template>`
 description: |-
   Enforce linebreaks after opening and before closing array brackets in `<template>`
   See rule details for [vue/array-bracket-newline](https://eslint.vuejs.org/rules/array-bracket-newline.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1148,13 +1148,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ArrayBracketSpacing
+name: org.openrewrite.cli.cleanup.vue.ArrayBracketSpacing
 displayName: Enforce consistent spacing inside array brackets in `<template>`
 description: |-
   Enforce consistent spacing inside array brackets in `<template>`
   See rule details for [vue/array-bracket-spacing](https://eslint.vuejs.org/rules/array-bracket-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1184,13 +1184,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ArrayElementNewline
+name: org.openrewrite.cli.cleanup.vue.ArrayElementNewline
 displayName: Enforce line breaks after each array element in `<template>`
 description: |-
   Enforce line breaks after each array element in `<template>`
   See rule details for [vue/array-element-newline](https://eslint.vuejs.org/rules/array-element-newline.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1220,13 +1220,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ArrowSpacing
+name: org.openrewrite.cli.cleanup.vue.ArrowSpacing
 displayName: Enforce consistent spacing before and after the arrow in arrow functions in `<template>`
 description: |-
   Enforce consistent spacing before and after the arrow in arrow functions in `<template>`
   See rule details for [vue/arrow-spacing](https://eslint.vuejs.org/rules/arrow-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1256,13 +1256,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.BlockSpacing
+name: org.openrewrite.cli.cleanup.vue.BlockSpacing
 displayName: Disallow or enforce spaces inside of blocks after opening block and before closing block in `<template>`
 description: |-
   Disallow or enforce spaces inside of blocks after opening block and before closing block in `<template>`
   See rule details for [vue/block-spacing](https://eslint.vuejs.org/rules/block-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1292,13 +1292,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.BraceStyle
+name: org.openrewrite.cli.cleanup.vue.BraceStyle
 displayName: Enforce consistent brace style for blocks in `<template>`
 description: |-
   Enforce consistent brace style for blocks in `<template>`
   See rule details for [vue/brace-style](https://eslint.vuejs.org/rules/brace-style.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1328,13 +1328,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.CommaDangle
+name: org.openrewrite.cli.cleanup.vue.CommaDangle
 displayName: Require or disallow trailing commas in `<template>`
 description: |-
   Require or disallow trailing commas in `<template>`
   See rule details for [vue/comma-dangle](https://eslint.vuejs.org/rules/comma-dangle.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1364,13 +1364,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.CommaSpacing
+name: org.openrewrite.cli.cleanup.vue.CommaSpacing
 displayName: Enforce consistent spacing before and after commas in `<template>`
 description: |-
   Enforce consistent spacing before and after commas in `<template>`
   See rule details for [vue/comma-spacing](https://eslint.vuejs.org/rules/comma-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1400,13 +1400,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.CommaStyle
+name: org.openrewrite.cli.cleanup.vue.CommaStyle
 displayName: Enforce consistent comma style in `<template>`
 description: |-
   Enforce consistent comma style in `<template>`
   See rule details for [vue/comma-style](https://eslint.vuejs.org/rules/comma-style.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1436,13 +1436,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.DotLocation
+name: org.openrewrite.cli.cleanup.vue.DotLocation
 displayName: Enforce consistent newlines before and after dots in `<template>`
 description: |-
   Enforce consistent newlines before and after dots in `<template>`
   See rule details for [vue/dot-location](https://eslint.vuejs.org/rules/dot-location.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1472,13 +1472,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.DotNotation
+name: org.openrewrite.cli.cleanup.vue.DotNotation
 displayName: Enforce dot notation whenever possible in `<template>`
 description: |-
   Enforce dot notation whenever possible in `<template>`
   See rule details for [vue/dot-notation](https://eslint.vuejs.org/rules/dot-notation.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1508,13 +1508,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.Eqeqeq
+name: org.openrewrite.cli.cleanup.vue.Eqeqeq
 displayName: Require the use of === and !== in `<template>`
 description: |-
   Require the use of === and !== in `<template>`
   See rule details for [vue/eqeqeq](https://eslint.vuejs.org/rules/eqeqeq.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1544,13 +1544,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.FuncCallSpacing
+name: org.openrewrite.cli.cleanup.vue.FuncCallSpacing
 displayName: Require or disallow spacing between function identifiers and their invocations in `<template>`
 description: |-
   Require or disallow spacing between function identifiers and their invocations in `<template>`
   See rule details for [vue/func-call-spacing](https://eslint.vuejs.org/rules/func-call-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1580,13 +1580,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.KeySpacing
+name: org.openrewrite.cli.cleanup.vue.KeySpacing
 displayName: Enforce consistent spacing between keys and values in object literal properties in `<template>`
 description: |-
   Enforce consistent spacing between keys and values in object literal properties in `<template>`
   See rule details for [vue/key-spacing](https://eslint.vuejs.org/rules/key-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1616,13 +1616,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.KeywordSpacing
+name: org.openrewrite.cli.cleanup.vue.KeywordSpacing
 displayName: Enforce consistent spacing before and after keywords in `<template>`
 description: |-
   Enforce consistent spacing before and after keywords in `<template>`
   See rule details for [vue/keyword-spacing](https://eslint.vuejs.org/rules/keyword-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1652,13 +1652,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.MultilineTernary
+name: org.openrewrite.cli.cleanup.vue.MultilineTernary
 displayName: Enforce newlines between operands of ternary expressions in `<template>`
 description: |-
   Enforce newlines between operands of ternary expressions in `<template>`
   See rule details for [vue/multiline-ternary](https://eslint.vuejs.org/rules/multiline-ternary.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1688,13 +1688,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.NoExtraParens
+name: org.openrewrite.cli.cleanup.vue.NoExtraParens
 displayName: Disallow unnecessary parentheses in `<template>`
 description: |-
   Disallow unnecessary parentheses in `<template>`
   See rule details for [vue/no-extra-parens](https://eslint.vuejs.org/rules/no-extra-parens.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1724,13 +1724,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ObjectCurlyNewline
+name: org.openrewrite.cli.cleanup.vue.ObjectCurlyNewline
 displayName: Enforce consistent line breaks after opening and before closing braces in `<template>`
 description: |-
   Enforce consistent line breaks after opening and before closing braces in `<template>`
   See rule details for [vue/object-curly-newline](https://eslint.vuejs.org/rules/object-curly-newline.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1760,13 +1760,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ObjectCurlySpacing
+name: org.openrewrite.cli.cleanup.vue.ObjectCurlySpacing
 displayName: Enforce consistent spacing inside braces in `<template>`
 description: |-
   Enforce consistent spacing inside braces in `<template>`
   See rule details for [vue/object-curly-spacing](https://eslint.vuejs.org/rules/object-curly-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1796,13 +1796,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ObjectPropertyNewline
+name: org.openrewrite.cli.cleanup.vue.ObjectPropertyNewline
 displayName: Enforce placing object properties on separate lines in `<template>`
 description: |-
   Enforce placing object properties on separate lines in `<template>`
   See rule details for [vue/object-property-newline](https://eslint.vuejs.org/rules/object-property-newline.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1832,13 +1832,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.ObjectShorthand
+name: org.openrewrite.cli.cleanup.vue.ObjectShorthand
 displayName: Require or disallow method and property shorthand syntax for object literals in `<template>`
 description: |-
   Require or disallow method and property shorthand syntax for object literals in `<template>`
   See rule details for [vue/object-shorthand](https://eslint.vuejs.org/rules/object-shorthand.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1868,13 +1868,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.OperatorLinebreak
+name: org.openrewrite.cli.cleanup.vue.OperatorLinebreak
 displayName: Enforce consistent linebreak style for operators in `<template>`
 description: |-
   Enforce consistent linebreak style for operators in `<template>`
   See rule details for [vue/operator-linebreak](https://eslint.vuejs.org/rules/operator-linebreak.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1904,13 +1904,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.PreferTemplate
+name: org.openrewrite.cli.cleanup.vue.PreferTemplate
 displayName: Require template literals instead of string concatenation in `<template>`
 description: |-
   Require template literals instead of string concatenation in `<template>`
   See rule details for [vue/prefer-template](https://eslint.vuejs.org/rules/prefer-template.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1940,13 +1940,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.QuoteProps
+name: org.openrewrite.cli.cleanup.vue.QuoteProps
 displayName: Require quotes around object literal property names in `<template>`
 description: |-
   Require quotes around object literal property names in `<template>`
   See rule details for [vue/quote-props](https://eslint.vuejs.org/rules/quote-props.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -1976,13 +1976,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.SpaceInParens
+name: org.openrewrite.cli.cleanup.vue.SpaceInParens
 displayName: Enforce consistent spacing inside parentheses in `<template>`
 description: |-
   Enforce consistent spacing inside parentheses in `<template>`
   See rule details for [vue/space-in-parens](https://eslint.vuejs.org/rules/space-in-parens.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2012,13 +2012,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.SpaceInfixOps
+name: org.openrewrite.cli.cleanup.vue.SpaceInfixOps
 displayName: Require spacing around infix operators in `<template>`
 description: |-
   Require spacing around infix operators in `<template>`
   See rule details for [vue/space-infix-ops](https://eslint.vuejs.org/rules/space-infix-ops.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2048,13 +2048,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.SpaceUnaryOps
+name: org.openrewrite.cli.cleanup.vue.SpaceUnaryOps
 displayName: Enforce consistent spacing before or after unary operators in `<template>`
 description: |-
   Enforce consistent spacing before or after unary operators in `<template>`
   See rule details for [vue/space-unary-ops](https://eslint.vuejs.org/rules/space-unary-ops.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -2084,13 +2084,13 @@ tags:
   - eslint-plugin-vue
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.vue.TemplateCurlySpacing
+name: org.openrewrite.cli.cleanup.vue.TemplateCurlySpacing
 displayName: Require or disallow spacing around embedded expressions of template strings in `<template>`
 description: |-
   Require or disallow spacing around embedded expressions of template strings in `<template>`
   See rule details for [vue/template-curly-spacing](https://eslint.vuejs.org/rules/template-curly-spacing.html).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {

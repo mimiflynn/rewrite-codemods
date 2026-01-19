@@ -1,10 +1,24 @@
 ![Logo](https://github.com/openrewrite/rewrite/raw/main/doc/logo-oss.png)
 
-## Apply JavaScript / TypeScript Codemods and Other CLI Tools
+## Apply External CLI Tools via OpenRewrite Recipes
 
-This repository provides JavaScript/TypeScript codemods and other CLI tools wrapped up into OpenRewrite recipes, so that they can be applied from the command line or using the [platform](https://app.moderne.io/).
+This repository provides a framework for wrapping external CLI tools (codemods, linters, formatters, etc.) as OpenRewrite recipes. These can be applied from the command line or using the [Moderne platform](https://app.moderne.io/).
 
-The framework supports any executable tool—Node.js-based codemods (jscodeshift, ESLint, Biome, etc.), Python tools, Ruby tools, or any other CLI utility that modifies files.
+The framework supports any executable tool—Node.js-based codemods (jscodeshift, ESLint, Biome, etc.), Python tools (Black, Ruff, etc.), Ruby tools, or any other CLI utility that modifies files.
+
+## Package Structure
+
+The codebase is organized under `org.openrewrite.cli`:
+
+| Class | Description |
+|-------|-------------|
+| `CliBasedRecipe` | Base class for any CLI tool integration |
+| `NodeBasedRecipe` | Node.js-specific base class (npx execution) |
+| `ApplyCliTool` | Generic CLI wrapper (no custom code needed) |
+| `ApplyCodemod` | jscodeshift codemod execution |
+| `ESLint` | ESLint linter integration |
+| `Biome` | Biome formatter/linter integration |
+| `Putout` | Putout transformation tool |
 
 ## Architecture
 
@@ -83,9 +97,9 @@ Previously, modifications from CLI tools were invisible to subsequent recipes be
 
 ```yaml
 recipes:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       patterns: ['**/*.ts']
-  - org.openrewrite.codemods.Biome # Sees ESLint changes
+  - org.openrewrite.cli.Biome # Sees ESLint changes
   - org.openrewrite.java.format.FormattingRecipe # Sees Biome changes
 ```
 

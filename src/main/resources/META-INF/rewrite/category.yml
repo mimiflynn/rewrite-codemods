@@ -15,10 +15,10 @@
 ---
 type: specs.openrewrite.org/v1beta/category
 name: JavaScript Codemods
-packageName: org.openrewrite.codemods
+packageName: org.openrewrite.cli
 description: Recipes that run JavaScript codemods.
 ---
 type: specs.openrewrite.org/v1beta/category
 name: Modernize
-packageName: org.openrewrite.codemods.migrate
+packageName: org.openrewrite.cli.migrate
 description: Recipes that modernize JavaScript code.
