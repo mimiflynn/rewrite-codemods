@@ -111,6 +111,9 @@ public class ApplyCliTool extends CliBasedRecipe {
                     String key = envVar.substring(0, idx);
                     String value = envVar.substring(idx + 1);
                     env.put(key, value);
+                } else {
+                    throw new IllegalArgumentException("Invalid environment variable format: '" + envVar
+                            + "'. Expected format is KEY=VALUE.");
                 }
             }
         }
