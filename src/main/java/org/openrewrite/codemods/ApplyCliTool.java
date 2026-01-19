@@ -84,6 +84,16 @@ public class ApplyCliTool extends CliBasedRecipe {
     }
 
     @Override
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
     protected List<String> getCommand(Accumulator acc, ExecutionContext ctx) {
         if (command == null || command.isEmpty()) {
             return emptyList();
