@@ -42,12 +42,37 @@ Extends `CliBasedRecipe` with Node.js-specific features:
 
 ### ApplyCliTool (Generic CLI Wrapper)
 
-A flexible recipe for executing any CLI tool without writing custom code:
+A flexible recipe for executing any CLI tool without writing custom code. Supports configurable timeout and exit codes.
+
+**Java usage:**
 
 ```java
-new ApplyCliTool()
-    .setCommand("python")
-    .setArgs(Arrays.asList("formatter.py", "${repoDir}"))
+new ApplyCliTool(
+    "Format Python",           // displayName
+    "Formats with Black.",     // description  
+    "black",                   // command
+    Arrays.asList("${repoDir}"), // args
+    null,                      // workDirEnvVar
+    null,                      // envVars
+    10,                        // timeoutMinutes (default: 5)
+    Arrays.asList(0, 1)        // acceptableExitCodes (default: [0])
+)
+```
+
+**YAML usage:**
+
+```yaml
+type: specs.openrewrite.org/v1beta/recipe
+name: com.example.FormatPython
+displayName: Format Python with Black
+recipeList:
+  - org.openrewrite.cli.ApplyCliTool:
+      displayName: Run Black formatter
+      description: Applies Black formatter to Python files.
+      command: black
+      args:
+        - "${repoDir}"
+      timeoutMinutes: 10
 ```
 
 ## Implementation Notes
@@ -135,6 +160,15 @@ public class MyTool extends CliBasedRecipe {
 - `${workDir}`: Full path to the temporary working directory
 - `${parser}`: (Node.js only) Auto-detected parser (tsx, ts, or babel)
 
+### Configuration Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `timeoutMinutes` | Maximum time to wait for command completion | 5 |
+| `acceptableExitCodes` | Exit codes treated as success | [0] |
+| `envVars` | Additional environment variables (KEY=VALUE format) | none |
+| `workDirEnvVar` | Environment variable name to set with working directory | none |
+
 ## Supported Tools
 
 ### JavaScript/TypeScript
@@ -145,6 +179,17 @@ public class MyTool extends CliBasedRecipe {
 - [Putout](https://github.com/coderaiser/putout) - JavaScript transformation tool
 - [@next/codemod](https://www.npmjs.com/package/@next/codemod) - Next.js codemods
 - [@mui/codemod](https://github.com/mui/material-ui/tree/master/packages/mui-codemod) - Material-UI codemods
+
+### Any CLI Tool
+
+With `ApplyCliTool`, you can use any command-line tool:
+
+- **Python**: Black, Ruff, autopep8, isort
+- **Ruby**: RuboCop, Standard
+- **Go**: gofmt, goimports
+- **Rust**: rustfmt, clippy
+- **Shell**: Any bash/sh script
+- **Custom tools**: Any executable that modifies files
 
 See our documentation on [creating recipes that run ESLint plugins](https://docs.openrewrite.org/authoring-recipes/recipe-with-npm-dependency) for a step-by-step guide.
 

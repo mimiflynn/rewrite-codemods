@@ -13,6 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * OpenRewrite recipes for integrating external CLI tools.
+ * <p>
+ * This package provides a framework for wrapping any command-line tool as an OpenRewrite recipe.
+ * Supports Node.js tools (via npx), Python tools, Ruby tools, or any other CLI utility.
+ * <p>
+ * Key classes:
+ * <ul>
+ *   <li>{@link org.openrewrite.cli.CliBasedRecipe} - Base class for any CLI tool</li>
+ *   <li>{@link org.openrewrite.cli.NodeBasedRecipe} - Node.js-specific base class</li>
+ *   <li>{@link org.openrewrite.cli.ApplyCliTool} - Generic CLI wrapper recipe</li>
+ * </ul>
+ */
 @NullMarked
 @NonNullFields
 package org.openrewrite.cli;
