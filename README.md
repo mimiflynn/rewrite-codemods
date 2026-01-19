@@ -49,7 +49,7 @@ A flexible recipe for executing any CLI tool without writing custom code. Suppor
 ```java
 new ApplyCliTool(
     "Format Python",           // displayName
-    "Formats with Black.",     // description  
+    "Formats with Black.",     // description
     "black",                   // command
     Arrays.asList("${repoDir}"), // args
     null,                      // workDirEnvVar
@@ -71,7 +71,7 @@ recipeList:
       description: Applies Black formatter to Python files.
       command: black
       args:
-        - "${repoDir}"
+        - '${repoDir}'
       timeoutMinutes: 10
 ```
 
@@ -162,12 +162,12 @@ public class MyTool extends CliBasedRecipe {
 
 ### Configuration Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `timeoutMinutes` | Maximum time to wait for command completion | 5 |
-| `acceptableExitCodes` | Exit codes treated as success | [0] |
-| `envVars` | Additional environment variables (KEY=VALUE format) | none |
-| `workDirEnvVar` | Environment variable name to set with working directory | none |
+| Option                | Description                                             | Default |
+| --------------------- | ------------------------------------------------------- | ------- |
+| `timeoutMinutes`      | Maximum time to wait for command completion             | 5       |
+| `acceptableExitCodes` | Exit codes treated as success                           | [0]     |
+| `envVars`             | Additional environment variables (KEY=VALUE format)     | none    |
+| `workDirEnvVar`       | Environment variable name to set with working directory | none    |
 
 ## Supported Tools
 

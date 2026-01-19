@@ -201,9 +201,11 @@ Potential enhancements:
 
 If needed, rollback is straightforward:
 
-1. Restore `package.json` to `src/main/resources/codemods/`
+1. Create `src/main/resources/codemods/` with a `package.json` containing all dependencies
 2. Re-add RecipeResources extraction in NodeBasedRecipe
 3. Update recipe commands back to `${nodeModules}/...` pattern
 4. Update Gradle build to run `npm install`
 
 The changes are isolated to NodeBasedRecipe and individual recipe implementations, making rollback low-risk.
+
+**Note:** The bundled approach was removed in the package restructure (`org.openrewrite.codemods` → `org.openrewrite.cli`). The `src/main/resources/codemods/` directory no longer exists.
