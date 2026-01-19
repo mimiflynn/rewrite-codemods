@@ -4,4 +4,5 @@ build/
 out/
 
 node_modules/
+/.working-set/
 bin/
