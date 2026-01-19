@@ -10,15 +10,15 @@ The framework supports any executable tool—Node.js-based codemods (jscodeshift
 
 The codebase is organized under `org.openrewrite.cli`:
 
-| Class | Description |
-|-------|-------------|
-| `CliBasedRecipe` | Base class for any CLI tool integration |
+| Class             | Description                                 |
+| ----------------- | ------------------------------------------- |
+| `CliBasedRecipe`  | Base class for any CLI tool integration     |
 | `NodeBasedRecipe` | Node.js-specific base class (npx execution) |
-| `ApplyCliTool` | Generic CLI wrapper (no custom code needed) |
-| `ApplyCodemod` | jscodeshift codemod execution |
-| `ESLint` | ESLint linter integration |
-| `Biome` | Biome formatter/linter integration |
-| `Putout` | Putout transformation tool |
+| `ApplyCliTool`    | Generic CLI wrapper (no custom code needed) |
+| `ApplyCodemod`    | jscodeshift codemod execution               |
+| `ESLint`          | ESLint linter integration                   |
+| `Biome`           | Biome formatter/linter integration          |
+| `Putout`          | Putout transformation tool                  |
 
 ## Architecture
 
