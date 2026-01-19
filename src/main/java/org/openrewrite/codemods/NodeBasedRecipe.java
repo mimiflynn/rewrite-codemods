@@ -28,19 +28,16 @@ import java.util.Map;
  * <p>
  * This class extends {@link CliBasedRecipe} and provides Node.js-specific utilities including:
  * <ul>
- *   <li>Node modules extraction and initialization</li>
- *   <li>Node-specific variable substitution (${nodeModules})</li>
+ *   <li>Uses npx to execute Node.js packages on-demand (no bundled dependencies)</li>
  *   <li>Parser detection based on file extensions</li>
+ *   <li>Node-specific variable substitution</li>
  * </ul>
  */
 public abstract class NodeBasedRecipe extends CliBasedRecipe {
 
     @Override
     protected String expandVariables(String str, Accumulator acc, ExecutionContext ctx) {
-        // Initialize node modules for variable substitution
-        Path nodeModules = RecipeResources.from(getClass()).init(ctx);
         return super.expandVariables(str, acc, ctx)
-                .replace("${nodeModules}", nodeModules.toString())
                 .replace("${parser}", acc.parser());
     }
 
@@ -52,8 +49,13 @@ public abstract class NodeBasedRecipe extends CliBasedRecipe {
     /**
      * Get the npm/Node.js command to execute. Must be implemented by subclasses.
      * <p>
-     * In addition to base variables, the following Node.js-specific variables are available:
-     * - ${nodeModules}: Path to extracted node_modules directory
+     * Commands should use npx to execute packages, e.g.:
+     * <pre>
+     * Arrays.asList("npx", "-y", "eslint@8.56.0", "${repoDir}", "--fix")
+     * </pre>
+     * <p>
+     * Available variables:
+     * - ${repoDir}: Current working directory (repository root)
      * - ${parser}: Auto-detected parser based on file extensions (tsx, ts, or babel)
      *
      * @return List of command parts (executable and arguments), or empty/null if command should not run
@@ -63,9 +65,6 @@ public abstract class NodeBasedRecipe extends CliBasedRecipe {
     @Override
     protected Map<String, String> getCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
         Map<String, String> env = new HashMap<>(getNodeCommandEnvironment(acc, ctx));
-        // Add Node.js-specific environment variables
-        Path nodeModules = RecipeResources.from(getClass()).init(ctx);
-        env.put("NODE_PATH", nodeModules.toString());
         env.put("TERM", "dumb");
         return env;
     }

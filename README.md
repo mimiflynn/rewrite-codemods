@@ -22,9 +22,9 @@ A generic base class that supports any command-line tool:
 
 Extends `CliBasedRecipe` with Node.js-specific features:
 
-- Automatic node_modules extraction and initialization
-- Node-specific variable substitution (${nodeModules})
+- Uses `npx` to execute packages on-demand (no bundled node_modules)
 - Parser auto-detection based on file extensions
+- Node-specific variable substitution
 
 ### ApplyCliTool (Generic CLI Wrapper)
 
@@ -43,6 +43,23 @@ All recipes extending `CliBasedRecipe` operate using a three-phase scanning reci
 1. **Scanning Phase**: All source files are serialized to disk, preserving the repository structure
 2. **Generate Phase**: The CLI tool executes against this directory tree. File modifications are detected by comparing timestamps before and after execution.
 3. **Edit Phase**: Modified files are reloaded from disk and returned as PlainText sources
+
+### NPX-Based Execution (Node.js)
+
+**🎯 No bundled dependencies!** Node.js recipes use `npx -y` to execute packages on-demand:
+
+- ✅ Small JAR file (no bundled node_modules)
+- ✅ Always use specific pinned versions
+- ✅ Automatic package download on first use
+- ⚠️ Requires internet connection on first run
+- ⚠️ Requires npm/npx installed on the system
+
+Example:
+
+```java
+// Executes: npx -y @biomejs/biome@1.9.4 lint ${repoDir} --fix
+Arrays.asList("npx", "-y", "@biomejs/biome@1.9.4", "lint", "${repoDir}", "--fix")
+```
 
 ### Chaining Multiple Recipes
 
@@ -81,7 +98,7 @@ Extend `NodeBasedRecipe` and implement `getNpmCommand()`:
 ```java
 public class MyCodemod extends NodeBasedRecipe {
     protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
-        return Arrays.asList("node", "${nodeModules}/my-tool/index.js", "${repoDir}");
+        return Arrays.asList("npx", "-y", "my-tool@1.0.0", "${repoDir}", "--fix");
     }
 }
 ```
@@ -102,7 +119,7 @@ public class MyTool extends CliBasedRecipe {
 
 - `${repoDir}`: Current working directory (set to ".")
 - `${workDir}`: Full path to the temporary working directory
-- `${nodeModules}`: (Node.js only) Path to extracted node_modules
+- `${parser}`: (Node.js only) Auto-detected parser (tsx, ts, or babel)
 
 ## Supported Tools
 

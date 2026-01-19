@@ -15,66 +15,32 @@
  */
 package org.openrewrite.codemods;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.TextNode;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Recipe;
 import org.openrewrite.scheduling.WorkingDirectoryExecutionContextView;
 
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.*;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Objects;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import static java.util.Collections.emptyMap;
 
+/**
+ * Utility class for extracting bundled resources (config files, scripts) from the JAR.
+ * Used by recipes that need configuration files like ESLint, Putout, and UI5.
+ */
 public final class RecipeResources {
-    private final String nodeModulesKey;
 
-    private RecipeResources(String keyPrefix) {
-        nodeModulesKey = keyPrefix + ".NODE_MODULES";
+    private RecipeResources() {
     }
 
     public static RecipeResources from(Class<? extends Recipe> recipeClass) {
-        String recipeClassPath = recipeClass.getName().replace('.', '/') + ".class";
-        URL resource = recipeClass.getClassLoader().getResource(recipeClassPath);
-        assert resource != null;
-        String key = resource.toString().substring(0, resource.toString().length() - recipeClassPath.length());
-        return new RecipeResources(key);
-    }
-
-    Path init(ExecutionContext ctx) {
-        Path nodeModules = ctx.getMessage(nodeModulesKey);
-        if (nodeModules == null) {
-            ctx.putMessage(nodeModulesKey, nodeModules = extractNodeModules(() -> {
-                try {
-                    WorkingDirectoryExecutionContextView view = WorkingDirectoryExecutionContextView.view(ctx);
-                    return Files.createDirectory(view.getWorkingDirectory().resolve("npm-registry"));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }).resolve("node_modules"));
-        }
-        return nodeModules;
-    }
-
-    private static Path extractNodeModules(Supplier<Path> dir) {
-        try {
-            Path result = extractResources("codemods", dir);
-            recreateBinSymlinks(result);
-            return result;
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        return new RecipeResources();
     }
 
     public Path extractResources(String resource, String dir, ExecutionContext ctx) {
@@ -99,9 +65,9 @@ public final class RecipeResources {
                     fileSystem = FileSystems.newFileSystem(uri, emptyMap(), null);
                 }
                 try (FileSystem localFileSystem = fileSystem) {
-                    Path codemodsPath = localFileSystem.getPath("/" + resource);
+                    Path resourcePath = localFileSystem.getPath("/" + resource);
                     Path target = dir.get();
-                    copyRecursively(codemodsPath, target);
+                    copyRecursively(resourcePath, target);
                     return target;
                 }
             } else if ("file".equals(uri.getScheme())) {
@@ -109,12 +75,12 @@ public final class RecipeResources {
             } else {
                 throw new IllegalArgumentException("Unsupported scheme: " + uri.getScheme());
             }
-        } catch (URISyntaxException | IOException | InterruptedException e) {
+        } catch (URISyntaxException | IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static void copyRecursively(Path sourceDir, Path targetDir) throws IOException, InterruptedException {
+    private static void copyRecursively(Path sourceDir, Path targetDir) throws IOException {
         try (Stream<Path> stream = Files.walk(sourceDir)) {
             stream.forEach(source -> {
                 try {
@@ -122,62 +88,6 @@ public final class RecipeResources {
                     Files.copy(source, targetDir.resolve(sourceDir.relativize(source).toString()), StandardCopyOption.REPLACE_EXISTING);
                 } catch (Exception e) {
                     throw new RuntimeException(e.getMessage(), e);
-                }
-            });
-        }
-    }
-
-    /**
-     * The `node_modules/.bin` directory contains symlinks (corresponding to the `bin` key in the package's `package.json`)
-     * that point to the package's corresponding script. These must exist in order for the codemod to work properly.
-     * <p>
-     * Since Gradle won't preserve relative symlinks properly (see https://github.com/gradle/gradle/issues/3982) and
-     * jar files cannot contain symlinks, these must be recreated manually.
-     */
-    private static void recreateBinSymlinks(Path target) throws IOException, InterruptedException {
-        Path binDir = target.resolve("node_modules/.bin");
-
-        // delete any existing files
-        try (Stream<Path> files = Files.list(binDir)) {
-            files.forEach(f -> {
-                try {
-                    Files.delete(f);
-                } catch (NoSuchFileException ignore) {
-                } catch (IOException e) {
-                    throw new UncheckedIOException(e);
-                }
-            });
-        }
-
-        // recreate symlinks from `package.json`
-        try (Stream<Path> packageJsonFiles = Files.walk(target.resolve("node_modules"), 2)
-                .filter(p -> "package.json".equals(p.getFileName().toString()))) {
-            ObjectMapper mapper = new ObjectMapper();
-            packageJsonFiles.forEach(p -> {
-                try {
-                    JsonNode jsonNode = mapper.readTree(p.toFile());
-                    JsonNode bin = jsonNode.get("bin");
-                    if (bin instanceof ObjectNode) {
-                        for (Iterator<Map.Entry<String, JsonNode>> it = bin.fields(); it.hasNext(); ) {
-                            Map.Entry<String, JsonNode> entry = it.next();
-                            if (entry.getValue() instanceof TextNode) {
-                                Path binScript = p.resolveSibling(entry.getValue().asText());
-                                if (Files.exists(binScript)) {
-                                    //noinspection ResultOfMethodCallIgnored
-                                    binScript.toFile().setExecutable(true);
-                                    Path symlink = binDir.resolve(entry.getKey());
-                                    Files.createSymbolicLink(symlink, binDir.relativize(binScript));
-                                }
-                            }
-                        }
-                    } else if (bin instanceof TextNode) {
-                        Path binScript = p.resolveSibling(bin.asText());
-                        if (Files.exists(binScript)) {
-                            Path symlink = binDir.resolve(bin.asText());
-                            Files.createSymbolicLink(symlink, binDir.relativize(binScript));
-                        }
-                    }
-                } catch (IOException ignore) {
                 }
             });
         }

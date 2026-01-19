@@ -69,7 +69,6 @@ public class Putout extends NodeBasedRecipe {
     @Override
     protected void runCommand(Accumulator acc, ExecutionContext ctx) {
         Path dir = acc.getDirectory();
-        Path nodeModules = RecipeResources.from(getClass()).init(ctx);
 
         List<String> commandList = getPutoutCommands(acc, ctx);
         if (commandList.isEmpty()) {
@@ -88,7 +87,6 @@ public class Putout extends NodeBasedRecipe {
 
                 ProcessBuilder builder = new ProcessBuilder(singleCommand);
                 builder.directory(dir.toFile());
-                builder.environment().put("NODE_PATH", nodeModules.toString());
                 builder.environment().put("TERM", "dumb");
                 env.forEach(builder.environment()::put);
 
