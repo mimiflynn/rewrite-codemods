@@ -166,6 +166,7 @@ public abstract class CliBasedRecipe extends ScanningRecipe<CliBasedRecipe.Accum
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             throw new RuntimeException(e);
         } finally {
             if (out != null) {
