@@ -14,13 +14,13 @@
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.ArrowBodyStyle
+name: org.openrewrite.cli.cleanup.javascript.ArrowBodyStyle
 displayName: Require braces around arrow function bodies
 description: |-
   Require braces around arrow function bodies
   See [rule details](https://eslint.org/docs/latest/rules/arrow-body-style).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -37,13 +37,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.CapitalizedComments
+name: org.openrewrite.cli.cleanup.javascript.CapitalizedComments
 displayName: Enforce or disallow capitalization of the first letter of a comment
 description: |-
   Enforce or disallow capitalization of the first letter of a comment 
   See [rule details](https://eslint.org/docs/latest/rules/capitalized-comments).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -60,13 +60,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.Curly
+name: org.openrewrite.cli.cleanup.javascript.Curly
 displayName: Enforce consistent brace style for all control statements
 description: |-
   Enforce consistent brace style for all control statements 
   See [rule details](https://eslint.org/docs/latest/rules/curly).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -83,13 +83,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.DotNotation
+name: org.openrewrite.cli.cleanup.javascript.DotNotation
 displayName: Enforce dot notation whenever possible
 description: |-
   Enforce dot notation whenever possible 
   See [rule details](https://eslint.org/docs/latest/rules/dot-notation).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -106,13 +106,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.Eqeqeq
+name: org.openrewrite.cli.cleanup.javascript.Eqeqeq
 displayName: Require the use of `===` and `!==`
 description: |-
   Require the use of `===` and `!==` 
   See [rule details](https://eslint.org/docs/latest/rules/eqeqeq).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -129,13 +129,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.LogicalAssignmentOperators
+name: org.openrewrite.cli.cleanup.javascript.LogicalAssignmentOperators
 displayName: Require or disallow logical assignment operator shorthand
 description: |-
   Require or disallow logical assignment operator shorthand 
   See [rule details](https://eslint.org/docs/latest/rules/logical-assignment-operators).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -152,13 +152,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.MultilineCommentStyle
+name: org.openrewrite.cli.cleanup.javascript.MultilineCommentStyle
 displayName: Enforce a particular style for multiline comments
 description: |-
   Enforce a particular style for multiline comments 
   See [rule details](https://eslint.org/docs/latest/rules/multiline-comment-style).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -175,13 +175,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoDivRegex
+name: org.openrewrite.cli.cleanup.javascript.NoDivRegex
 displayName: Disallow equal signs explicitly at the beginning of regular expressions
 description: |-
   Disallow equal signs explicitly at the beginning of regular expressions 
   See [rule details](https://eslint.org/docs/latest/rules/no-div-regex).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -198,13 +198,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoElseReturn
+name: org.openrewrite.cli.cleanup.javascript.NoElseReturn
 displayName: Disallow else blocks after return statements in if statements
 description: |-
   Disallow else blocks after return statements in if statements 
   See [rule details](https://eslint.org/docs/latest/rules/no-else-return).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -221,13 +221,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoExtraBind
+name: org.openrewrite.cli.cleanup.javascript.NoExtraBind
 displayName: Disallow unnecessary calls to `.bind()`
 description: |-
   Disallow unnecessary calls to `.bind()` 
   See [rule details](https://eslint.org/docs/latest/rules/no-extra-bind).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -244,13 +244,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoExtraLabel
+name: org.openrewrite.cli.cleanup.javascript.NoExtraLabel
 displayName: Disallow unnecessary labels
 description: |-
   Disallow unnecessary labels 
   See [rule details](https://eslint.org/docs/latest/rules/no-extra-label).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -267,13 +267,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoImplicitCoercion
+name: org.openrewrite.cli.cleanup.javascript.NoImplicitCoercion
 displayName: Disallow shorthand type conversions
 description: |-
   Disallow shorthand type conversions 
   See [rule details](https://eslint.org/docs/latest/rules/no-implicit-coercion).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -290,13 +290,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoLonelyIf
+name: org.openrewrite.cli.cleanup.javascript.NoLonelyIf
 displayName: Disallow if statements as the only statement in else blocks
 description: |-
   Disallow if statements as the only statement in else blocks 
   See [rule details](https://eslint.org/docs/latest/rules/no-lonely-if).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -313,13 +313,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUndefInit
+name: org.openrewrite.cli.cleanup.javascript.NoUndefInit
 displayName: Disallow initializing variables to undefined
 description: |-
   Disallow initializing variables to undefined 
   See [rule details](https://eslint.org/docs/latest/rules/no-undef-init).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -336,13 +336,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUnneededTernary
+name: org.openrewrite.cli.cleanup.javascript.NoUnneededTernary
 displayName: Disallow ternary operators when simpler alternatives exist
 description: |-
   Disallow ternary operators when simpler alternatives exist 
   See [rule details](https://eslint.org/docs/latest/rules/no-unneeded-ternary).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -359,13 +359,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessComputedKey
+name: org.openrewrite.cli.cleanup.javascript.NoUselessComputedKey
 displayName: Disallow unnecessary computed property keys in objects and classes
 description: |-
   Disallow unnecessary computed property keys in objects and classes 
   See [rule details](https://eslint.org/docs/latest/rules/no-useless-computed-key).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -382,13 +382,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessRename
+name: org.openrewrite.cli.cleanup.javascript.NoUselessRename
 displayName: Disallow renaming import, export, and destructured assignments to the same name
 description: |-
   Disallow renaming import, export, and destructured assignments to the same name
   See [rule details](https://eslint.org/docs/latest/rules/no-useless-rename).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -405,13 +405,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoUselessReturn
+name: org.openrewrite.cli.cleanup.javascript.NoUselessReturn
 displayName: Disallow redundant return statements
 description: |-
   Disallow redundant return statements 
   See [rule details](https://eslint.org/docs/latest/rules/no-useless-return).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -428,13 +428,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.NoVar
+name: org.openrewrite.cli.cleanup.javascript.NoVar
 displayName: Require `let` or `const` instead of `var`
 description: |-
   Require `let` or `const` instead of `var` 
   See [rule details](https://eslint.org/docs/latest/rules/no-var).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -451,13 +451,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.ObjectShorthand
+name: org.openrewrite.cli.cleanup.javascript.ObjectShorthand
 displayName: Require or disallow method and property shorthand syntax for object literals
 description: |-
   Require or disallow method and property shorthand syntax for object literals 
   See [rule details](https://eslint.org/docs/latest/rules/object-shorthand).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -474,13 +474,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.OneVar
+name: org.openrewrite.cli.cleanup.javascript.OneVar
 displayName: Enforce variables to be declared either together or separately in functions
 description: |-
   Enforce variables to be declared either together or separately in functions 
   See [rule details](https://eslint.org/docs/latest/rules/one-var).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -497,13 +497,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.OperatorAssignment
+name: org.openrewrite.cli.cleanup.javascript.OperatorAssignment
 displayName: Require or disallow assignment operator shorthand where possible
 description: |-
   Require or disallow assignment operator shorthand where possible 
   See [rule details](https://eslint.org/docs/latest/rules/operator-assignment).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -520,13 +520,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferArrowCallback
+name: org.openrewrite.cli.cleanup.javascript.PreferArrowCallback
 displayName: Require using arrow functions for callbacks
 description: |-
   Require using arrow functions for callbacks 
   See [rule details](https://eslint.org/docs/latest/rules/prefer-arrow-callback).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -543,13 +543,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferConst
+name: org.openrewrite.cli.cleanup.javascript.PreferConst
 displayName: Require const declarations for variables that are never reassigned after declared
 description: |-
   Require const declarations for variables that are never reassigned after declared 
   See [rule details](https://eslint.org/docs/latest/rules/prefer-const).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -566,13 +566,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferDestructuring
+name: org.openrewrite.cli.cleanup.javascript.PreferDestructuring
 displayName: Require destructuring from arrays and/or objects
 description: |-
   Require destructuring from arrays and/or objects 
   See [rule details](https://eslint.org/docs/latest/rules/prefer-destructuring).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -589,13 +589,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferExponentiationOperator
+name: org.openrewrite.cli.cleanup.javascript.PreferExponentiationOperator
 displayName: Disallow the use of `Math.pow` in favor of the ** operator
 description: |-
   Disallow the use of `Math.pow` in favor of the ** operator 
   See [rule details](https://eslint.org/docs/latest/rules/prefer-exponentiation-operator).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -612,13 +612,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferNumericLiterals
+name: org.openrewrite.cli.cleanup.javascript.PreferNumericLiterals
 displayName: Disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals
 description: |-
   Disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals 
   See [rule details](https://eslint.org/docs/latest/rules/prefer-numeric-literals).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -635,13 +635,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferObjectHasOwn
+name: org.openrewrite.cli.cleanup.javascript.PreferObjectHasOwn
 displayName: Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn(`)
 description: |-
   Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn(`) 
   See [rule details](https://eslint.org/docs/latest/rules/prefer-object-has-own).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -658,13 +658,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferObjectSpread
+name: org.openrewrite.cli.cleanup.javascript.PreferObjectSpread
 displayName: Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead
 description: |-
   Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead 
   See [rule details](https://eslint.org/docs/latest/rules/prefer-object-spread).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -681,13 +681,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.PreferTemplate
+name: org.openrewrite.cli.cleanup.javascript.PreferTemplate
 displayName: Require template literals instead of string concatenation
 description: |-
   Require template literals instead of string concatenation 
   See [rule details](https://eslint.org/docs/latest/rules/prefer-template).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -704,13 +704,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.SortImports
+name: org.openrewrite.cli.cleanup.javascript.SortImports
 displayName: Enforce sorted import declarations within modules
 description: |-
   Enforce sorted import declarations within modules 
   See [rule details](https://eslint.org/docs/latest/rules/sort-imports).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -727,13 +727,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.SortVars
+name: org.openrewrite.cli.cleanup.javascript.SortVars
 displayName: Require variables within the same declaration block to be sorted
 description: |-
   Require variables within the same declaration block to be sorted 
   See [rule details](https://eslint.org/docs/latest/rules/sort-vars).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -750,13 +750,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.Strict
+name: org.openrewrite.cli.cleanup.javascript.Strict
 displayName: Require or disallow strict mode directives
 description: |-
   Require or disallow strict mode directives 
   See [rule details](https://eslint.org/docs/latest/rules/strict).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -773,13 +773,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.Yoda
+name: org.openrewrite.cli.cleanup.javascript.Yoda
 displayName: Require or disallow "Yoda" conditions
 description: |-
   Require or disallow "Yoda" conditions
   See [rule details](https://eslint.org/docs/latest/rules/yoda).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -796,13 +796,13 @@ recipeList:
         }
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.javascript.UnicodeBom
+name: org.openrewrite.cli.cleanup.javascript.UnicodeBom
 displayName: Require or disallow Unicode byte order mark (BOM)
 description: |-
   Require or disallow Unicode byte order mark (BOM) 
   See [rule details](https://eslint.org/docs/latest/rules/unicode-bom).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {

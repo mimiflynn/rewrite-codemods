@@ -15,16 +15,16 @@
 ---
 type: specs.openrewrite.org/v1beta/category
 name: Jest
-packageName: org.openrewrite.codemods.cleanup.jest
+packageName: org.openrewrite.cli.cleanup.jest
 description: Recipes that cleanup Jest code.
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.RecommendedJestCodeCleanup
+name: org.openrewrite.cli.cleanup.jest.RecommendedJestCodeCleanup
 displayName: Recommended Jest code cleanup
 description: |-
   Collection of cleanup ESLint rules that are recommended by [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -62,13 +62,13 @@ tags:
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.NoDeprecatedFunctions27
+name: org.openrewrite.cli.cleanup.jest.NoDeprecatedFunctions27
 displayName: Disallow use of deprecated functions from before version 27
 description: |-
   Disallow use of deprecated functions from before version 27
   See rule details for [jest/no-deprecated-functions](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-deprecated-functions.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -97,13 +97,13 @@ tags:
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.ConsistentTestIt
+name: org.openrewrite.cli.cleanup.jest.ConsistentTestIt
 displayName: Enforce test and it usage conventions
 description: |-
   Enforce test and it usage conventions
   See rule details for [jest/consistent-test-it](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/consistent-test-it.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -126,13 +126,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.NoAliasMethods
+name: org.openrewrite.cli.cleanup.jest.NoAliasMethods
 displayName: Disallow alias methods
 description: |-
   Disallow alias methods
   See rule details for [jest/no-alias-methods](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-alias-methods.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -155,13 +155,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.NoJasmineGlobals
+name: org.openrewrite.cli.cleanup.jest.NoJasmineGlobals
 displayName: Disallow Jasmine globals
 description: |-
   Disallow Jasmine globals
   See rule details for [jest/no-jasmine-globals](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-jasmine-globals.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -184,13 +184,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.NoTestPrefixes
+name: org.openrewrite.cli.cleanup.jest.NoTestPrefixes
 displayName: Require using .only and .skip over f and x
 description: |-
   Require using .only and .skip over f and x
   See rule details for [jest/no-test-prefixes](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-test-prefixes.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -213,13 +213,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.NoUntypedMockFactory
+name: org.openrewrite.cli.cleanup.jest.NoUntypedMockFactory
 displayName: Disallow using jest.mock() factories without an explicit type parameter
 description: |-
   Disallow using jest.mock() factories without an explicit type parameter
   See rule details for [jest/no-untyped-mock-factory](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-untyped-mock-factory.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -242,13 +242,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferComparisonMatcher
+name: org.openrewrite.cli.cleanup.jest.PreferComparisonMatcher
 displayName: Suggest using the built-in comparison matchers
 description: |-
   Suggest using the built-in comparison matchers
   See rule details for [jest/prefer-comparison-matcher](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-comparison-matcher.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -271,13 +271,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferExpectResolves
+name: org.openrewrite.cli.cleanup.jest.PreferExpectResolves
 displayName: Prefer await expect(...).resolves over expect(await ...) syntax
 description: |-
   Prefer await expect(...).resolves over expect(await ...) syntax
   See rule details for [jest/prefer-expect-resolves](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-expect-resolves.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -300,13 +300,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferLowercaseTitle
+name: org.openrewrite.cli.cleanup.jest.PreferLowercaseTitle
 displayName: Enforce lowercase test names
 description: |-
   Enforce lowercase test names
   See rule details for [jest/prefer-lowercase-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-lowercase-title.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -329,13 +329,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferMockPromiseShorthand
+name: org.openrewrite.cli.cleanup.jest.PreferMockPromiseShorthand
 displayName: Prefer mock resolved/rejected shorthands for promises
 description: |-
   Prefer mock resolved/rejected shorthands for promises
   See rule details for [jest/prefer-mock-promise-shorthand](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-mock-promise-shorthand.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -358,13 +358,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferSpyOn
+name: org.openrewrite.cli.cleanup.jest.PreferSpyOn
 displayName: Suggest using jest.spyOn()
 description: |-
   Suggest using jest.spyOn()
   See rule details for [jest/prefer-spy-on](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-spy-on.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -387,13 +387,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferToBe
+name: org.openrewrite.cli.cleanup.jest.PreferToBe
 displayName: Suggest using toBe() for primitive literals
 description: |-
   Suggest using toBe() for primitive literals
   See rule details for [jest/prefer-to-be](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-be.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -416,13 +416,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferToContain
+name: org.openrewrite.cli.cleanup.jest.PreferToContain
 displayName: Suggest using toContain()
 description: |-
   Suggest using toContain()
   See rule details for [jest/prefer-to-contain](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-contain.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -445,13 +445,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferToHaveLength
+name: org.openrewrite.cli.cleanup.jest.PreferToHaveLength
 displayName: Suggest using toHaveLength()
 description: |-
   Suggest using toHaveLength()
   See rule details for [jest/prefer-to-have-length](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-have-length.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -474,13 +474,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.PreferTodo
+name: org.openrewrite.cli.cleanup.jest.PreferTodo
 displayName: Suggest using test.todo
 description: |-
   Suggest using test.todo
   See rule details for [jest/prefer-todo](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-todo.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -503,13 +503,13 @@ tags:
   - eslint-plugin-jest
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.jest.ValidTitle
+name: org.openrewrite.cli.cleanup.jest.ValidTitle
 displayName: Enforce valid titles
 description: |-
   Enforce valid titles
   See rule details for [jest/valid-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/valid-title.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {

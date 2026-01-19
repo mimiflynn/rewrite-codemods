@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.openrewrite.codemods;
+package org.openrewrite.cli;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -36,11 +36,26 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.Collections.emptyList;
+import static java.util.Collections.singletonList;
 
-public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Accumulator> {
-    private static final String FIRST_RECIPE = NodeBasedRecipe.class.getName() + ".FIRST_RECIPE";
-    private static final String PREVIOUS_RECIPE = NodeBasedRecipe.class.getName() + ".PREVIOUS_RECIPE";
-    private static final String INIT_REPO_DIR = NodeBasedRecipe.class.getName() + ".INIT_REPO_DIR";
+/**
+ * Base class for recipes that apply external CLI tools (node, python, bash, etc.) to modify source files.
+ * <p>
+ * This recipe operates in three phases:
+ * <ul>
+ *   <li><b>Scanning Phase:</b> Serializes all source files to a temporary directory on disk</li>
+ *   <li><b>Generate Phase:</b> Executes the CLI tool and detects which files were modified</li>
+ *   <li><b>Edit Phase:</b> Reloads modified files and returns updated PlainText sources</li>
+ * </ul>
+ * <p>
+ * Multiple CLI-based recipes can be chained together, with each recipe's output becoming the input to the next.
+ * Additionally, subsequent non-CLI recipes can now process the modified files because the modified content
+ * is reloaded back into the OpenRewrite tree during the edit phase.
+ */
+public abstract class CliBasedRecipe extends ScanningRecipe<CliBasedRecipe.Accumulator> {
+    private static final String FIRST_RECIPE = CliBasedRecipe.class.getName() + ".FIRST_RECIPE";
+    private static final String PREVIOUS_RECIPE = CliBasedRecipe.class.getName() + ".PREVIOUS_RECIPE";
+    private static final String INIT_REPO_DIR = CliBasedRecipe.class.getName() + ".INIT_REPO_DIR";
 
     @Override
     public Accumulator getInitialValue(ExecutionContext ctx) {
@@ -66,9 +81,8 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
                         acc.extensionCounts.computeIfAbsent(extension, e -> new AtomicInteger(0)).incrementAndGet();
                     }
 
-                    // only extract initial source files for first codemod recipe
+                    // only extract initial source files for first CLI recipe
                     if (Objects.equals(ctx.getMessage(FIRST_RECIPE), ctx.getCycleDetails().getRecipePosition())) {
-                        // FIXME filter out more source types; possibly only write plain text, json, and yaml?
                         acc.writeSource(sourceFile);
                     }
                 }
@@ -84,64 +98,81 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
             acc.copyFromPrevious(previous);
         }
 
-        runNode(acc, ctx);
+        runCommand(acc, ctx);
         ctx.putMessage(PREVIOUS_RECIPE, acc.getDirectory());
 
-        // FIXME check for generated files
         return emptyList();
     }
 
-    protected void runNode(Accumulator acc, ExecutionContext ctx) {
+    /**
+     * Execute the CLI command. This method:
+     * 1. Builds the command from {@link #getCommand(Accumulator, ExecutionContext)}
+     * 2. Performs variable substitution on the command
+     * 3. Executes the command as a process
+     * 4. Detects which files were modified by comparing timestamps
+     * 5. Calls {@link #processOutput(Path, Accumulator, ExecutionContext)} for output processing
+     */
+    protected void runCommand(Accumulator acc, ExecutionContext ctx) {
         Path dir = acc.getDirectory();
-        Path nodeModules = RecipeResources.from(getClass()).init(ctx);
 
-        List<String> command = getNpmCommand(acc, ctx);
-        if (command.isEmpty()) {
+        List<String> command = getCommand(acc, ctx);
+        if (command == null || command.isEmpty()) {
             return;
+        }
+
+        // Perform variable substitution
+        List<String> expandedCommand = new ArrayList<>();
+        for (String part : command) {
+            expandedCommand.add(expandVariables(part, acc, ctx));
         }
 
         Map<String, String> env = getCommandEnvironment(acc, ctx);
 
-        command.replaceAll(s -> s
-                .replace("${nodeModules}", nodeModules.toString())
-                .replace("${repoDir}", ".")
-                .replace("${parser}", acc.parser()));
         Path out = null;
         Path err = null;
         try {
-            ProcessBuilder builder = new ProcessBuilder();
-            builder.command(command);
+            ProcessBuilder builder = new ProcessBuilder(expandedCommand);
             builder.directory(dir.toFile());
-            builder.environment().put("NODE_PATH", nodeModules.toString());
-            builder.environment().put("TERM", "dumb");
+
+            // Set environment variables
             env.forEach(builder.environment()::put);
 
-            out = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
-            err = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "node", null);
+            // Redirect output and error
+            out = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "cli-tool", null);
+            err = Files.createTempFile(WorkingDirectoryExecutionContextView.view(ctx).getWorkingDirectory(), "cli-tool", null);
             builder.redirectOutput(ProcessBuilder.Redirect.to(out.toFile()));
             builder.redirectError(ProcessBuilder.Redirect.to(err.toFile()));
 
             Process process = builder.start();
-            if (!process.waitFor(5, TimeUnit.MINUTES)) {
-                throw new RuntimeException(String.format("Command '%s' timed out after 5 minutes", String.join(" ", command)));
+            int timeout = getTimeoutMinutes();
+            if (!process.waitFor(timeout, TimeUnit.MINUTES)) {
+                process.destroyForcibly();
+                throw new RuntimeException(String.format("Command '%s' timed out after %d minutes",
+                        String.join(" ", expandedCommand), timeout));
             }
-            if (process.exitValue() != 0) {
-                String error = "Command failed: " + String.join(" ", command);
+
+            List<Integer> acceptableCodes = getAcceptableExitCodes();
+            if (!acceptableCodes.contains(process.exitValue())) {
+                String error = "Command failed with exit code " + process.exitValue() + ": " + String.join(" ", expandedCommand);
                 if (Files.exists(err)) {
                     error += "\n" + new String(Files.readAllBytes(err));
                 }
                 throw new RuntimeException(error);
             }
+
+            // Detect modified files by checking modification timestamps
             for (Map.Entry<Path, Long> entry : acc.beforeModificationTimestamps.entrySet()) {
                 Path path = entry.getKey();
                 if (!Files.exists(path) || Files.getLastModifiedTime(path).toMillis() > entry.getValue()) {
                     acc.modified(path);
                 }
             }
+
             processOutput(out, acc, ctx);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             throw new RuntimeException(e);
         } finally {
             if (out != null) {
@@ -155,15 +186,59 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
         }
     }
 
-    protected abstract List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx);
+    /**
+     * Perform variable substitution on a command string.
+     * Subclasses can override to support additional variables.
+     */
+    protected String expandVariables(String str, Accumulator acc, ExecutionContext ctx) {
+        return str
+                .replace("${repoDir}", ".")
+                .replace("${workDir}", acc.getDirectory().toString());
+    }
 
+    /**
+     * Get the command to execute. Must be implemented by subclasses.
+     * The returned list should contain the executable followed by its arguments.
+     * Common variables that can be used in the command:
+     * - ${repoDir}: Current working directory (repository root)
+     * - ${workDir}: Full path to the working directory
+     *
+     * @return List of command parts (executable and arguments), or null/empty if command should not run
+     */
+    protected abstract List<String> getCommand(Accumulator acc, ExecutionContext ctx);
+
+    /**
+     * Provide additional environment variables for the CLI tool execution.
+     * Override this method to set tool-specific environment variables.
+     */
     protected Map<String, String> getCommandEnvironment(Accumulator acc, ExecutionContext ctx) {
         return new HashMap<>();
     }
 
-    protected void processOutput(Path out, Accumulator acc, ExecutionContext ctx) {
+    /**
+     * Get the timeout in minutes for command execution.
+     * Override this method to customize the timeout for specific tools.
+     * Default is 5 minutes.
+     */
+    protected int getTimeoutMinutes() {
+        return 5;
     }
 
+    /**
+     * Get the list of exit codes that should be treated as success.
+     * Override this method for tools that use non-zero exit codes for warnings.
+     * Default is only 0.
+     */
+    protected List<Integer> getAcceptableExitCodes() {
+        return singletonList(0);
+    }
+
+    /**
+     * Process the output from the CLI tool (stdout).
+     * Override this method to parse and handle tool-specific output.
+     */
+    protected void processOutput(Path out, Accumulator acc, ExecutionContext ctx) {
+    }
 
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {
@@ -172,7 +247,6 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
             public @Nullable Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
                 if (tree instanceof SourceFile) {
                     SourceFile sourceFile = (SourceFile) tree;
-                    // TODO parse sources like JSON where parser doesn't require an environment
                     return createAfter(sourceFile, acc, ctx);
                 }
                 return tree;
@@ -304,5 +378,4 @@ public abstract class NodeBasedRecipe extends ScanningRecipe<NodeBasedRecipe.Acc
                 })
                 .orElseThrow(() -> new IllegalStateException("Failed to create working directory for " + prefix));
     }
-
 }

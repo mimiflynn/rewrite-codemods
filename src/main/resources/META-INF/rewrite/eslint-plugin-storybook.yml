@@ -14,12 +14,12 @@
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.RecommendedStorybookCodeCleanup
+name: org.openrewrite.cli.cleanup.storybook.RecommendedStorybookCodeCleanup
 displayName: Recommended Storybook code cleanup
 description: |-
   Collection of cleanup ESLint rules from [eslint-plugin-storybook](https://github.com/storybookjs/eslint-plugin-storybook#readme).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -48,13 +48,13 @@ tags:
   - eslint-plugin-storybook
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.AwaitInteractions
+name: org.openrewrite.cli.cleanup.storybook.AwaitInteractions
 displayName: Interactions should be awaited
 description: |-
   Interactions should be awaited
   See rule details for [storybook/await-interactions](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/await-interactions.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -76,13 +76,13 @@ tags:
   - eslint-plugin-storybook
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.DefaultExports
+name: org.openrewrite.cli.cleanup.storybook.DefaultExports
 displayName: Story files should have a default export
 description: |-
   Story files should have a default export
   See rule details for [storybook/default-exports](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/default-exports.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -104,13 +104,13 @@ tags:
   - eslint-plugin-storybook
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.HierarchySeparator
+name: org.openrewrite.cli.cleanup.storybook.HierarchySeparator
 displayName: Deprecated hierarchy separator in title property
 description: |-
   Deprecated hierarchy separator in title property
   See rule details for [storybook/hierarchy-separator](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/hierarchy-separator.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -132,13 +132,13 @@ tags:
   - eslint-plugin-storybook
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.NoRedundantStoryName
+name: org.openrewrite.cli.cleanup.storybook.NoRedundantStoryName
 displayName: A story should not have a redundant name property
 description: |-
   A story should not have a redundant name property
   See rule details for [storybook/no-redundant-story-name](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/no-redundant-story-name.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -160,13 +160,13 @@ tags:
   - eslint-plugin-storybook
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.NoTitlePropertyInMeta
+name: org.openrewrite.cli.cleanup.storybook.NoTitlePropertyInMeta
 displayName: Do not define a title in meta
 description: |-
   Do not define a title in meta
   See rule details for [storybook/no-title-property-in-meta](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/no-title-property-in-meta.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -188,13 +188,13 @@ tags:
   - eslint-plugin-storybook
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.PreferPascalCase
+name: org.openrewrite.cli.cleanup.storybook.PreferPascalCase
 displayName: Stories should use PascalCase
 description: |-
   Stories should use PascalCase
   See rule details for [storybook/prefer-pascal-case](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/prefer-pascal-case.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -216,13 +216,13 @@ tags:
   - eslint-plugin-storybook
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.UseStorybookExpect
+name: org.openrewrite.cli.cleanup.storybook.UseStorybookExpect
 displayName: Use expect from @storybook/jest
 description: |-
   Use expect from @storybook/jest
   See rule details for [storybook/use-storybook-expect](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/use-storybook-expect.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {
@@ -244,13 +244,13 @@ tags:
   - eslint-plugin-storybook
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.cleanup.storybook.UseStorybookTestingLibrary
+name: org.openrewrite.cli.cleanup.storybook.UseStorybookTestingLibrary
 displayName: Do not use testing-library directly on stories
 description: |-
   Do not use testing-library directly on stories
   See rule details for [storybook/use-storybook-testing-library](https://github.com/storybookjs/eslint-plugin-storybook/blob/main/docs/rules/use-storybook-testing-library.md).
 recipeList:
-  - org.openrewrite.codemods.ESLint:
+  - org.openrewrite.cli.ESLint:
       fix: true
       configFile: |
         {

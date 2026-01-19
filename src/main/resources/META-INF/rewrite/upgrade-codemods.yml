@@ -1,0 +1,146 @@
+# Copyright 2025 the original author or authors.
+# <p>
+# Licensed under the Moderne Source Available License (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://docs.moderne.io/licensing/moderne-source-available-license
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# Migration recipes for upgrading from org.openrewrite.codemods to org.openrewrite.cli
+#
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.cli.migrate.UpgradeToCliPackage
+displayName: Migrate from org.openrewrite.codemods to org.openrewrite.cli
+description: >-
+  Migrates recipe references from the deprecated `org.openrewrite.codemods` package
+  to the new `org.openrewrite.cli` package. This updates YAML recipe files, Java imports,
+  and any other references to the old package names.
+tags:
+  - migration
+  - cli
+recipeList:
+  - org.openrewrite.cli.migrate.MigrateCodemodsYamlRecipes
+  - org.openrewrite.cli.migrate.MigrateCodemodsJavaImports
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.cli.migrate.MigrateCodemodsYamlRecipes
+displayName: Migrate YAML recipe references from codemods to cli
+description: >-
+  Updates recipe references in YAML files from `org.openrewrite.codemods.*` to `org.openrewrite.cli.*`.
+  This handles rewrite.yml files and any other YAML configuration files that reference these recipes.
+tags:
+  - migration
+  - yaml
+recipeList:
+  # Core recipes
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.ESLint
+      replace: org.openrewrite.cli.ESLint
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.ESLint
+      replace: org.openrewrite.cli.ESLint
+      filePattern: '**/*.yaml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.Biome
+      replace: org.openrewrite.cli.Biome
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.Biome
+      replace: org.openrewrite.cli.Biome
+      filePattern: '**/*.yaml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.Putout
+      replace: org.openrewrite.cli.Putout
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.Putout
+      replace: org.openrewrite.cli.Putout
+      filePattern: '**/*.yaml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.ApplyCodemod
+      replace: org.openrewrite.cli.ApplyCodemod
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.ApplyCodemod
+      replace: org.openrewrite.cli.ApplyCodemod
+      filePattern: '**/*.yaml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.ReactI18Next
+      replace: org.openrewrite.cli.ReactI18Next
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.ReactI18Next
+      replace: org.openrewrite.cli.ReactI18Next
+      filePattern: '**/*.yaml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.UI5
+      replace: org.openrewrite.cli.UI5
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.UI5
+      replace: org.openrewrite.cli.UI5
+      filePattern: '**/*.yaml'
+  # Cleanup sub-package recipes (ESLint rules)
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.cleanup.javascript
+      replace: org.openrewrite.cli.cleanup.javascript
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.cleanup.javascript
+      replace: org.openrewrite.cli.cleanup.javascript
+      filePattern: '**/*.yaml'
+  # Format sub-package recipes
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.format.javascript
+      replace: org.openrewrite.cli.format.javascript
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.format.javascript
+      replace: org.openrewrite.cli.format.javascript
+      filePattern: '**/*.yaml'
+  # Migrate sub-package recipes
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.migrate
+      replace: org.openrewrite.cli.migrate
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.migrate
+      replace: org.openrewrite.cli.migrate
+      filePattern: '**/*.yaml'
+  # Recommendations sub-package
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.recommendations
+      replace: org.openrewrite.cli.recommendations
+      filePattern: '**/*.yml'
+  - org.openrewrite.text.FindAndReplace:
+      find: org.openrewrite.codemods.recommendations
+      replace: org.openrewrite.cli.recommendations
+      filePattern: '**/*.yaml'
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.cli.migrate.MigrateCodemodsJavaImports
+displayName: Migrate Java imports from codemods to cli
+description: >-
+  Updates Java import statements and class references from `org.openrewrite.codemods.*`
+  to `org.openrewrite.cli.*`. This is for users who have custom recipes extending
+  NodeBasedRecipe or using the codemods classes directly.
+tags:
+  - migration
+  - java
+recipeList:
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.openrewrite.codemods
+      newPackageName: org.openrewrite.cli
+      recursive: true

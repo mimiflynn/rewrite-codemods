@@ -1,0 +1,109 @@
+# Copyright 2025 the original author or authors.
+# <p>
+# Licensed under the Moderne Source Available License (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://docs.moderne.io/licensing/moderne-source-available-license
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# DEPRECATED COMPATIBILITY ALIASES
+#
+# These recipes provide backwards compatibility for the old org.openrewrite.codemods package.
+# They delegate to the new org.openrewrite.cli package recipes.
+#
+# Please update your recipe references to use org.openrewrite.cli.* instead.
+# These aliases will be removed in a future release.
+#
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.ESLint
+displayName: '[Deprecated] Lint source code with ESLint'
+description: >-
+  **DEPRECATED**: Use `org.openrewrite.cli.ESLint` instead. This recipe will be removed in a future release.
+
+  Run [ESLint](https://eslint.org/) across the code to fix common static analysis issues in the code.
+recipeList:
+  - org.openrewrite.cli.ESLint
+tags:
+  - deprecated
+  - eslint
+  - javascript
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.Biome
+displayName: '[Deprecated] Biome recommendations'
+description: >-
+  **DEPRECATED**: Use `org.openrewrite.cli.Biome` instead. This recipe will be removed in a future release.
+
+  Run [Biome](https://biomejs.dev/) recommended settings on your projects.
+recipeList:
+  - org.openrewrite.cli.Biome
+tags:
+  - deprecated
+  - biome
+  - javascript
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.Putout
+displayName: '[Deprecated] Run Putout'
+description: >-
+  **DEPRECATED**: Use `org.openrewrite.cli.Putout` instead. This recipe will be removed in a future release.
+
+  Run [Putout](https://github.com/coderaiser/putout) on your projects.
+recipeList:
+  - org.openrewrite.cli.Putout
+tags:
+  - deprecated
+  - putout
+  - javascript
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.ApplyCodemod
+displayName: '[Deprecated] Applies a codemod to all source files'
+description: >-
+  **DEPRECATED**: Use `org.openrewrite.cli.ApplyCodemod` instead. This recipe will be removed in a future release.
+
+  Applies a codemod represented by an NPM package to all source files.
+recipeList:
+  - org.openrewrite.cli.ApplyCodemod
+tags:
+  - deprecated
+  - codemod
+  - javascript
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.ReactI18Next
+displayName: '[Deprecated] React i18next internationalization'
+description: >-
+  **DEPRECATED**: Use `org.openrewrite.cli.ReactI18Next` instead. This recipe will be removed in a future release.
+
+  Automatically internationalizes React applications by extracting hardcoded strings.
+recipeList:
+  - org.openrewrite.cli.ReactI18Next
+tags:
+  - deprecated
+  - react
+  - i18n
+  - javascript
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.openrewrite.codemods.UI5
+displayName: '[Deprecated] Lint UI5 projects with UI5 linter'
+description: >-
+  **DEPRECATED**: Use `org.openrewrite.cli.UI5` instead. This recipe will be removed in a future release.
+
+  Runs the [UI5 Linter](https://github.com/SAP/ui5-linter), a static code analysis tool for UI5 projects.
+recipeList:
+  - org.openrewrite.cli.UI5
+tags:
+  - deprecated
+  - ui5
+  - javascript

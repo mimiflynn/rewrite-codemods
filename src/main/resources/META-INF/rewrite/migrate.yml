@@ -15,11 +15,11 @@
 ---
 type: specs.openrewrite.org/v1beta/category
 name: Lodash
-packageName: org.openrewrite.codemods.migrate.lodash
+packageName: org.openrewrite.cli.migrate.lodash
 description: Recipes that modernize the use of [Lodash](https://lodash.com/).
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.migrate.lodash.LodashUnderscoreArray
+name: org.openrewrite.cli.migrate.lodash.LodashUnderscoreArray
 displayName: Replace lodash and underscore array functions with native JavaScript
 description: |-
   - `_.head(x)` -> `x[0]`
@@ -35,11 +35,11 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.cli.ApplyCodemod:
       transform: '@kevinbarabash/codemods/transforms/array.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.migrate.lodash.LodashUnderscoreFunction
+name: org.openrewrite.cli.migrate.lodash.LodashUnderscoreFunction
 displayName: Replace lodash and underscore function functions with native JavaScript
 description: |-
   - `_.bind(fn, obj, ...x)` -> `fn.bind(obj, ...x)`
@@ -49,11 +49,11 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.cli.ApplyCodemod:
       transform: '@kevinbarabash/codemods/transforms/function.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.migrate.lodash.LodashUnderscoreObjects
+name: org.openrewrite.cli.migrate.lodash.LodashUnderscoreObjects
 displayName: Replace lodash and underscore object functions with native JavaScript
 description: |-
   - `_.clone(x)` -> `{ ...x }`
@@ -67,11 +67,11 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.cli.ApplyCodemod:
       transform: '@kevinbarabash/codemods/transforms/object.js'
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.openrewrite.codemods.migrate.lodash.LodashUnderscoreUtil
+name: org.openrewrite.cli.migrate.lodash.LodashUnderscoreUtil
 displayName: Replace lodash and underscore utility functions with native JavaScript
 description: |-
   - `_.isArray(x)` -> `Array.isArray(x)`
@@ -86,5 +86,5 @@ tags:
   - lodash
   - underscore
 recipeList:
-  - org.openrewrite.codemods.ApplyCodemod:
+  - org.openrewrite.cli.ApplyCodemod:
       transform: '@kevinbarabash/codemods/transforms/util.js'

@@ -13,23 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.openrewrite.codemods;
 
-import lombok.EqualsAndHashCode;
-import lombok.Value;
-import org.jspecify.annotations.Nullable;
 
-import java.util.Set;
+package org.openrewrite.cli;
 
-/**
- * @deprecated Use {@link org.openrewrite.cli.Putout} instead. This class will be removed in a future release.
- */
-@Deprecated
-@Value
-@EqualsAndHashCode(callSuper = true)
-public class Putout extends org.openrewrite.cli.Putout {
+import lombok.Getter;
+import org.openrewrite.ExecutionContext;
 
-    public Putout(@Nullable Set<String> rules, @Nullable String printer) {
-        super(rules, printer);
+import java.util.Arrays;
+import java.util.List;
+
+public class Biome extends NodeBasedRecipe {
+    @Getter
+    final String displayName = "Biome recommendations";
+
+    @Getter
+    final String description = "Run [Biome](https://biomejs.dev/) recommended settings on your projects.";
+
+    @Override
+    protected List<String> getNpmCommand(Accumulator acc, ExecutionContext ctx) {
+        return Arrays.asList("npx", "-y", "@biomejs/biome@1.9.4", "lint", "${repoDir}", "--fix");
     }
+
 }
