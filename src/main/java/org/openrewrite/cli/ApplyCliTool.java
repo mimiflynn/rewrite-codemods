@@ -40,7 +40,7 @@ import static java.util.Collections.emptyList;
  * name: com.example.FormatWithBlack
  * displayName: Format Python with Black
  * recipeList:
- *   - org.openrewrite.codemods.ApplyCliTool:
+ *   - org.openrewrite.cli.ApplyCliTool:
  *       displayName: Format Python files
  *       description: Applies Black formatter to all Python files
  *       command: black
