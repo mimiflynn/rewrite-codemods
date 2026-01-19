@@ -77,6 +77,7 @@ public abstract class NodeBasedRecipe extends CliBasedRecipe {
         return new HashMap<>();
     }
 
+    @Override
     protected void processOutput(Path out, Accumulator acc, ExecutionContext ctx) {
     }
 }
