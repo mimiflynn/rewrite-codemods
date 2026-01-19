@@ -73,9 +73,15 @@ public class ApplyCliTool extends CliBasedRecipe {
     @Nullable
     List<String> envVars;
 
-    String displayName = "Apply CLI tool to source files";
+    @Override
+    public String getDisplayName() {
+        return "Apply CLI tool to source files";
+    }
 
-    String description = "Applies an external CLI tool (e.g., formatter, linter, custom tool) to all source files.";
+    @Override
+    public String getDescription() {
+        return "Applies an external CLI tool (e.g., formatter, linter, custom tool) to all source files.";
+    }
 
     @Override
     protected List<String> getCommand(Accumulator acc, ExecutionContext ctx) {
